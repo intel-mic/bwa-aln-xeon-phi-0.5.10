@@ -1,0 +1,3 @@
+source aln-head
+
+${src_directory}/bwa index -a bwtsw $ref_file

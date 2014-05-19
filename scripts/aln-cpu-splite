@@ -1,0 +1,20 @@
+source aln-head
+
+#file1
+echo Input file1:$file1
+num_rows=$(wc -l < $file1)
+echo num_rows:$num_rows
+
+# Split file, file_name, num_tasks
+./aln-splitfile $file1 $host1_num_tasks
+
+
+
+#file2
+echo
+echo Input file2:$file2
+num_rows=$(wc -l < $file2)
+echo num_rows:$num_rows
+
+# Split file, file_name, num_tasks
+./aln-splitfile $file2 $host1_num_tasks

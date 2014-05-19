@@ -1,0 +1,61 @@
+source aln-head
+
+#file1
+echo Input file1:$file1
+num_rows=$(wc -l < $file1)
+echo num_rows:$num_rows
+
+num_4_rows=$[num_rows/4]
+echo num_4_rows:$num_4_rows
+
+num_blocks_per_ratio=$[num_4_rows/(host1_ratio + host2_ratio)]
+echo num_blocks_per_ratio:$num_blocks_per_ratio
+
+#host1
+num_rows_host1=$[num_blocks_per_ratio*host1_ratio*4]
+echo num_rows_host1:$num_rows_host1
+head -n $num_rows_host1 $file1 > $host1_input_file1
+echo host1_input_file1:$host1_input_file1
+
+#host2
+num_rows_host2=$[num_rows - num_rows_host1]
+echo num_rows_host2:$num_rows_host2
+tail -n $num_rows_host2 $file1 > $host2_input_file1
+echo host2_input_file1:$host2_input_file1
+
+# Split file, file_name, num_tasks
+./aln-splitfile $host1_input_file1 $host1_num_tasks
+./aln-splitfile $host2_input_file1 $host2_num_tasks
+
+
+
+#file2
+echo
+echo Input file2:$file2
+num_rows=$(wc -l < $file2)
+echo num_rows:$num_rows
+
+num_4_rows=$[num_rows/4]
+echo num_4_rows:$num_4_rows
+
+num_blocks_per_ratio=$[num_4_rows/(host1_ratio + host2_ratio)]
+echo num_blocks_per_ratio:$num_blocks_per_ratio
+
+#host1
+num_rows_host1=$[num_blocks_per_ratio*host1_ratio*4]
+echo num_rows_host1:$num_rows_host1
+head -n $num_rows_host1 $file2 > $host1_input_file2
+echo host1_input_file2:$host1_input_file2
+
+#host2
+num_rows_host2=$[num_rows - num_rows_host1]
+echo num_rows_host2:$num_rows_host2
+tail -n $num_rows_host2 $file2 > $host2_input_file2
+echo host2_input_file2:$host2_input_file2
+
+# Split file, file_name, num_tasks
+./aln-splitfile $host1_input_file2 $host1_num_tasks
+./aln-splitfile $host2_input_file2 $host2_num_tasks
+
+
+

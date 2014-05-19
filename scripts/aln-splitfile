@@ -1,0 +1,34 @@
+# Split file
+
+file=$1
+echo Splite file name:$file
+
+num_tasks=$2
+echo num_tasks:$num_tasks
+
+num_rows=$(wc -l < $file)
+echo num_rows:$num_rows
+
+num_4_rows=$[num_rows/4+1]
+echo num_4_rows:$num_4_rows
+
+num_blocks_per_task=$[num_4_rows/num_tasks+1]
+echo num_blocks_per_task:$num_blocks_per_task
+
+num_block_rows=$[num_blocks_per_task*4]
+echo num_block_rows:$num_block_rows
+
+split -l $num_block_rows $file $file
+
+echo Splite result:
+echo ${file}_0
+echo ${file}_1
+echo ${file}_2
+#echo ${file}_3
+
+mv ${file}aa ${file}_0
+mv ${file}ab ${file}_1
+mv ${file}ac ${file}_2
+#mv ${file}ad ${file}_3
+
+

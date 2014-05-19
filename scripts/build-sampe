@@ -1,0 +1,4 @@
+source aln-head
+
+${src_directory}/bwa sampe -a 320 -n 1 -N 0 $ref_file $res_file1 $res_file2 $file1 $file2 > $sampe_output
+
