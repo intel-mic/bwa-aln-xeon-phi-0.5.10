@@ -1,0 +1,938 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AC_KSEQ_H	kseq.h	27;"	d
+AC_KSORT_H	ksort.h	56;"	d
+AC_KVEC_H	kvec.h	49;"	d
+AC_VERSION_KHASH_H	khash.h	93;"	d
+ALL_ONE_MASK	bwt_gen/bwt_gen.h	37;"	d
+ALN_TYPE_EXTEND	stdaln.h	81;"	d
+ALN_TYPE_GLOBAL	stdaln.h	80;"	d
+ALN_TYPE_LOCAL	stdaln.h	79;"	d
+ALPHABET_SIZE	bwt_gen/bwt_gen.h	28;"	d
+ATTRIBUTE	utils.h	36;"	d
+ATTRIBUTE	utils.h	38;"	d
+AlnAln	stdaln.h	/^} AlnAln;$/;"	t	typeref:struct:__anon9
+AlnParam	stdaln.h	/^} AlnParam;$/;"	t	typeref:struct:__anon7
+BAMLITE_H_	bamlite.h	2;"	d
+BAM_CDEL	bamlite.h	38;"	d
+BAM_CHARD_CLIP	bamlite.h	41;"	d
+BAM_CIGAR_MASK	bamlite.h	34;"	d
+BAM_CIGAR_SHIFT	bamlite.h	33;"	d
+BAM_CINS	bamlite.h	37;"	d
+BAM_CMATCH	bamlite.h	36;"	d
+BAM_CPAD	bamlite.h	42;"	d
+BAM_CREF_SKIP	bamlite.h	39;"	d
+BAM_CSOFT_CLIP	bamlite.h	40;"	d
+BAM_FDUP	bamlite.h	31;"	d
+BAM_FMREVERSE	bamlite.h	26;"	d
+BAM_FMUNMAP	bamlite.h	24;"	d
+BAM_FPAIRED	bamlite.h	21;"	d
+BAM_FPROPER_PAIR	bamlite.h	22;"	d
+BAM_FQCFAIL	bamlite.h	30;"	d
+BAM_FREAD1	bamlite.h	27;"	d
+BAM_FREAD2	bamlite.h	28;"	d
+BAM_FREVERSE	bamlite.h	25;"	d
+BAM_FSECONDARY	bamlite.h	29;"	d
+BAM_FUNMAP	bamlite.h	23;"	d
+BARCODE_LOW_QUAL	bwaseqio.c	143;"	d	file:
+BITS_IN_BYTE	bwt_gen/bwt_gen.h	34;"	d
+BITS_IN_WORD	bwt_gen/bwt_gen.h	33;"	d
+BITS_PER_OCC_VALUE	bwt_gen/bwt_gen.h	40;"	d
+BIT_PER_CHAR	bwt_gen/bwt_gen.h	29;"	d
+BWASE_H	bwase.h	2;"	d
+BWA_AVG_ERR	bwtaln.h	22;"	d
+BWA_BWT_H	bwt.h	29;"	d
+BWA_MAIN_H	main.h	2;"	d
+BWA_MAX_BCLEN	bwtaln.h	25;"	d
+BWA_MIN_RDLEN	bwtaln.h	23;"	d
+BWA_MODE_BAM	bwtaln.h	91;"	d
+BWA_MODE_BAM_READ1	bwtaln.h	93;"	d
+BWA_MODE_BAM_READ2	bwtaln.h	94;"	d
+BWA_MODE_BAM_SE	bwtaln.h	92;"	d
+BWA_MODE_CFY	bwtaln.h	89;"	d
+BWA_MODE_COMPREAD	bwtaln.h	87;"	d
+BWA_MODE_GAPE	bwtaln.h	86;"	d
+BWA_MODE_IL13	bwtaln.h	95;"	d
+BWA_MODE_LOGGAP	bwtaln.h	88;"	d
+BWA_MODE_NONSTOP	bwtaln.h	90;"	d
+BWA_PET_SOLID	bwtaln.h	110;"	d
+BWA_PET_STD	bwtaln.h	109;"	d
+BWA_TYPE_MATESW	bwtaln.h	10;"	d
+BWA_TYPE_NO_MATCH	bwtaln.h	7;"	d
+BWA_TYPE_REPEAT	bwtaln.h	9;"	d
+BWA_TYPE_UNIQUE	bwtaln.h	8;"	d
+BWA_UBYTE	bntseq.h	35;"	d
+BWA_UBYTE	bwt.h	37;"	d
+BWT	bwt_gen/bwt_gen.h	/^typedef struct BWT {$/;"	s
+BWT	bwt_gen/bwt_gen.h	/^} BWT;$/;"	t	typeref:struct:BWT
+BWTALN_H	bwtaln.h	2;"	d
+BWTClearTrailingBwtCode	bwt_gen/bwt_gen.c	/^void BWTClearTrailingBwtCode(BWT *bwt)$/;"	f
+BWTCreate	bwt_gen/bwt_gen.c	/^BWT *BWTCreate(const unsigned int textLength, unsigned int *decodeTable)$/;"	f
+BWTFileSizeInWord	bwt_gen/bwt_gen.c	/^static unsigned int BWTFileSizeInWord(const unsigned int numChar)$/;"	f	file:
+BWTFree	bwt_gen/bwt_gen.c	/^void BWTFree(BWT *bwt)$/;"	f
+BWTGAP_H_	bwtgap.h	2;"	d
+BWTGenerateOccValueFromBwt	bwt_gen/bwt_gen.c	/^void BWTGenerateOccValueFromBwt(const unsigned int*  bwt, unsigned int* __restrict occValue,$/;"	f
+BWTINC_INSERT_SORT_NUM_ITEM	bwt_gen/bwt_gen.h	48;"	d
+BWTInc	bwt_gen/bwt_gen.h	/^typedef struct BWTInc {$/;"	s
+BWTInc	bwt_gen/bwt_gen.h	/^} BWTInc;$/;"	t	typeref:struct:BWTInc
+BWTIncBuildBwt	bwt_gen/bwt_gen.c	/^static void BWTIncBuildBwt(unsigned int*  seq, const unsigned int *relativeRank, const unsigned int numChar,$/;"	f	file:
+BWTIncBuildPackedBwt	bwt_gen/bwt_gen.c	/^static void BWTIncBuildPackedBwt(const unsigned int *relativeRank, unsigned int* __restrict bwt, const unsigned int numChar,$/;"	f	file:
+BWTIncBuildRelativeRank	bwt_gen/bwt_gen.c	/^static void BWTIncBuildRelativeRank(unsigned int* __restrict sortedRank, unsigned int* __restrict seq,$/;"	f	file:
+BWTIncConstruct	bwt_gen/bwt_gen.c	/^static void BWTIncConstruct(BWTInc *bwtInc, const unsigned int numChar)$/;"	f	file:
+BWTIncConstructFromPacked	bwt_gen/bwt_gen.c	/^BWTInc *BWTIncConstructFromPacked(const char *inputFileName, const float targetNBit,$/;"	f
+BWTIncCreate	bwt_gen/bwt_gen.c	/^BWTInc *BWTIncCreate(const unsigned int textLength, const float targetNBit,$/;"	f
+BWTIncFree	bwt_gen/bwt_gen.c	/^void BWTIncFree(BWTInc *bwtInc)$/;"	f
+BWTIncGetAbsoluteRank	bwt_gen/bwt_gen.c	/^static unsigned int BWTIncGetAbsoluteRank(BWT *bwt, unsigned int* __restrict absoluteRank, unsigned int* __restrict seq,$/;"	f	file:
+BWTIncMergeBwt	bwt_gen/bwt_gen.c	/^static void BWTIncMergeBwt(const unsigned int *sortedRank, const unsigned int* oldBwt, const unsigned int *insertBwt,$/;"	f	file:
+BWTIncPutPackedTextToRank	bwt_gen/bwt_gen.c	/^static void BWTIncPutPackedTextToRank(const unsigned int *packedText, unsigned int* __restrict rank,$/;"	f	file:
+BWTIncSetBuildSizeAndTextAddr	bwt_gen/bwt_gen.c	/^static void BWTIncSetBuildSizeAndTextAddr(BWTInc *bwtInc)$/;"	f	file:
+BWTIncSortKey	bwt_gen/bwt_gen.c	/^static void BWTIncSortKey(unsigned int* __restrict key, unsigned int* __restrict seq, const unsigned int numItem)$/;"	f	file:
+BWTOccValue	bwt_gen/bwt_gen.c	/^unsigned int BWTOccValue(const BWT *bwt, unsigned int index, const unsigned int character) {$/;"	f
+BWTOccValueExplicit	bwt_gen/bwt_gen.c	/^static inline unsigned int BWTOccValueExplicit(const BWT *bwt, const unsigned int occIndexExplicit,$/;"	f	file:
+BWTOccValueMajorSizeInWord	bwt_gen/bwt_gen.c	/^static unsigned int BWTOccValueMajorSizeInWord(const unsigned int numChar)$/;"	f	file:
+BWTOccValueMinorSizeInWord	bwt_gen/bwt_gen.c	/^static unsigned int BWTOccValueMinorSizeInWord(const unsigned int numChar)$/;"	f	file:
+BWTResidentSizeInWord	bwt_gen/bwt_gen.c	/^static unsigned int BWTResidentSizeInWord(const unsigned int numChar) {$/;"	f	file:
+BWTSaveBwtCodeAndOcc	bwt_gen/bwt_gen.c	/^void BWTSaveBwtCodeAndOcc(const BWT *bwt, const char *bwtFileName, const char *occValueFileName)$/;"	f
+BWT_BNTSEQ_H	bntseq.h	29;"	d
+BWT_GEN_H	bwt_gen/bwt_gen.h	26;"	d
+BWT_LITE_H_	bwt_lite.h	2;"	d
+BYTES_IN_WORD	bwt_gen/bwt_gen.h	35;"	d
+BackwardDNAOccCount	bwt_gen/bwt_gen.c	/^static unsigned int BackwardDNAOccCount(const unsigned int*  dna, const unsigned int index, const unsigned int character,$/;"	f	file:
+BitPerBytePackedChar	bwt_gen/bwt_gen.c	/^static unsigned int BitPerBytePackedChar(const unsigned int alphabetSize)$/;"	f	file:
+BitPerWordPackedChar	bwt_gen/bwt_gen.c	/^static unsigned int BitPerWordPackedChar(const unsigned int alphabetSize)$/;"	f	file:
+CC	Makefile	/^CC=			icc$/;"	m
+CC	bwt_gen/Makefile	/^CC=			gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=		-g -Wall -O2$/;"	m
+CFLAGS	bwt_gen/Makefile	/^CFLAGS=		-g -Wall -O2 -m64 # comment out `-m64' for 32-bit compilation$/;"	m
+CHAR_PER_BYTE	bwt_gen/bwt_gen.h	31;"	d
+CHAR_PER_WORD	bwt_gen/bwt_gen.h	30;"	d
+CIGAR_LN_MASK	bwtaln.h	47;"	d
+CIGAR_OP_SHIFT	bwtaln.h	46;"	d
+COLOR_MM	cs2nt.c	24;"	d	file:
+CXX	Makefile	/^CXX=		icpc$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS=	$(CFLAGS)$/;"	m
+ConvertBytePackedToWordPacked	bwt_gen/bwt_gen.c	/^static void ConvertBytePackedToWordPacked(const unsigned char *input, unsigned int *output, const unsigned int alphabetSize,$/;"	f	file:
+D	bwtsw2_core.c	/^	int I, D, G;$/;"	m	struct:__anon39	file:
+D	stdaln.c	/^	int M, I, D;$/;"	m	struct:__anon11	file:
+DFLAGS	Makefile	/^DFLAGS=		-DHAVE_PTHREAD #-D_FILE_OFFSET_BITS=64$/;"	m
+DFLAGS	bwt_gen/Makefile	/^DFLAGS=		-D_FILE_OFFSET_BITS=64$/;"	m
+DNA_OCC_CNT_TABLE_SIZE_IN_WORD	bwt_gen/bwt_gen.h	38;"	d
+DNA_OCC_SUM_EXCEPTION	bwt_gen/bwt_gen.h	57;"	d
+Dt	stdaln.c	/^	unsigned char Mt:3, It:2, Dt:2;$/;"	m	struct:__anon10	file:
+EQUAL_KEY_THRESHOLD	bwt_gen/bwt_gen.c	641;"	d	file:
+FALSE	bwt_gen/bwt_gen.h	46;"	d
+FROM_D	stdaln.h	76;"	d
+FROM_I	stdaln.h	75;"	d
+FROM_M	stdaln.h	74;"	d
+FROM_S	stdaln.h	77;"	d
+ForwardDNAAllOccCountNoLimit	bwt_gen/bwt_gen.c	/^static void ForwardDNAAllOccCountNoLimit(const unsigned int*  dna, const unsigned int index,$/;"	f	file:
+ForwardDNAOccCount	bwt_gen/bwt_gen.c	/^static unsigned int ForwardDNAOccCount(const unsigned int*  dna, const unsigned int index, const unsigned int character,$/;"	f	file:
+G	bwtsw2.h	/^	int len, G, G2;$/;"	m	struct:__anon24
+G	bwtsw2_core.c	/^	int I, D, G;$/;"	m	struct:__anon39	file:
+G2	bwtsw2.h	/^	int len, G, G2;$/;"	m	struct:__anon24
+GenerateDNAOccCountTable	bwt_gen/bwt_gen.c	/^static void GenerateDNAOccCountTable(unsigned int *dnaDecodeTable)$/;"	f	file:
+I	bwtsw2_core.c	/^	int I, D, G;$/;"	m	struct:__anon39	file:
+I	stdaln.c	/^	int M, I, D;$/;"	m	struct:__anon11	file:
+INCLUDES	Makefile	/^INCLUDES=	$/;"	m
+INCLUDES	bwt_gen/Makefile	/^INCLUDES=	$/;"	m
+INSERT_SORT_NUM_ITEM	bwt_gen/QSufSort.h	33;"	d
+It	stdaln.c	/^	unsigned char Mt:3, It:2, Dt:2;$/;"	m	struct:__anon10	file:
+KEY	bwt_gen/QSufSort.h	32;"	d
+KHASH_INIT	khash.h	142;"	d
+KHASH_MAP_INIT_INT	khash.h	472;"	d
+KHASH_MAP_INIT_INT64	khash.h	487;"	d
+KHASH_MAP_INIT_STR	khash.h	503;"	d
+KHASH_SET_INIT_INT	khash.h	464;"	d
+KHASH_SET_INIT_INT64	khash.h	479;"	d
+KHASH_SET_INIT_STR	khash.h	495;"	d
+KSEQ_INIT	kseq.h	202;"	d
+KSORT_INIT	ksort.h	68;"	d
+KSORT_INIT_GENERIC	ksort.h	266;"	d
+KSORT_INIT_STR	ksort.h	267;"	d
+KSORT_SWAP	ksort.h	66;"	d
+KSTREAM_INIT	kseq.h	124;"	d
+KSTRING_H	kstring.h	2;"	d
+KSTRING_T	kseq.h	73;"	d
+KSTRING_T	kstring.h	12;"	d
+L2	bwt.h	/^	bwtint_t L2[5]; \/\/ C(), cumulative count$/;"	m	struct:__anon38
+L2	bwt_lite.h	/^	uint32_t *bwt, *occ, *sa, L2[5];$/;"	m	struct:__anon22
+LH3_BWTSW2_H	bwtsw2.h	2;"	d
+LH3_STDALN_H_	stdaln.h	67;"	d
+LH3_UTILS_H	utils.h	29;"	d
+LIBS	Makefile	/^LIBS=		-lm -lz -lpthread -Lbwt_gen -lbwtgen$/;"	m
+LIBS	bwt_gen/Makefile	/^LIBS=		$/;"	m
+LOCAL_OVERFLOW_REDUCE	stdaln.c	253;"	d	file:
+LOCAL_OVERFLOW_THRESHOLD	stdaln.c	252;"	d	file:
+M	stdaln.c	/^	int M, I, D;$/;"	m	struct:__anon11	file:
+MASK_LEVEL	bwtsw2_core.c	15;"	d	file:
+MINOR_INF	stdaln.h	84;"	d
+MINUS_INF	bwtsw2_core.c	14;"	d	file:
+MIN_HASH_WIDTH	bwape.c	35;"	d	file:
+Mt	stdaln.c	/^	unsigned char Mt:3, It:2, Dt:2;$/;"	m	struct:__anon10	file:
+NT_LOCAL_MASK	stdaln.c	256;"	d	file:
+NT_LOCAL_SCORE	stdaln.c	254;"	d	file:
+NT_LOCAL_SHIFT	stdaln.c	255;"	d	file:
+NUCL_MM	cs2nt.c	25;"	d	file:
+N_multi	bwtaln.h	/^	int n_multi, N_multi;$/;"	m	struct:__anon6
+Note	solid2fastq.pl	/^Note: <in.title> is the string showed in the `# Title:' line of a$/;"	l
+OBJS	Makefile	/^OBJS=		utils.o bwt.o bwtio.o bwtaln.o bwtgap.o is.o \\$/;"	m
+OBJS	bwt_gen/Makefile	/^OBJS=		bwt_gen.o QSufSort.o$/;"	m
+OCC_INTERVAL	bwt.h	34;"	d
+OCC_INTERVAL	bwt_gen/bwt_gen.h	42;"	d
+OCC_INTERVAL_MAJOR	bwt_gen/bwt_gen.h	43;"	d
+OCC_VALUE_PER_WORD	bwt_gen/bwt_gen.h	41;"	d
+OUTLIER_BOUND	bwape.c	89;"	d	file:
+PACKAGE_VERSION	main.c	7;"	d	file:
+PROG	Makefile	/^PROG=		bwa$/;"	m
+QSufSortBucketSort	bwt_gen/QSufSort.c	/^static void QSufSortBucketSort(int* __restrict V, int* __restrict I, const int numChar, const int alphabetSize) {$/;"	f	file:
+QSufSortChoosePivot	bwt_gen/QSufSort.c	/^static int QSufSortChoosePivot(int* __restrict V, int* __restrict I, const int lowestPos, $/;"	f	file:
+QSufSortGenerateSaFromInverse	bwt_gen/QSufSort.c	/^void QSufSortGenerateSaFromInverse(const int* V, int* __restrict I, const int numChar) {$/;"	f
+QSufSortInsertSortSplit	bwt_gen/QSufSort.c	/^static void QSufSortInsertSortSplit(int* __restrict V, int* __restrict I, const int lowestPos, $/;"	f	file:
+QSufSortSortSplit	bwt_gen/QSufSort.c	/^static void QSufSortSortSplit(int* __restrict V, int* __restrict I, const int lowestPos, $/;"	f	file:
+QSufSortSuffixSort	bwt_gen/QSufSort.c	/^void QSufSortSuffixSort(int* __restrict V, int* __restrict I, const int numChar, const int largestInputSymbol, $/;"	f
+QSufSortTransform	bwt_gen/QSufSort.c	/^static int QSufSortTransform(int* __restrict V, int* __restrict I, const int numChar, const int largestInputSymbol, $/;"	f	file:
+SAM_FMR	bwtaln.h	17;"	d
+SAM_FMU	bwtaln.h	15;"	d
+SAM_FPD	bwtaln.h	12;"	d
+SAM_FPP	bwtaln.h	13;"	d
+SAM_FR1	bwtaln.h	18;"	d
+SAM_FR2	bwtaln.h	19;"	d
+SAM_FSC	bwtaln.h	20;"	d
+SAM_FSR	bwtaln.h	16;"	d
+SAM_FSU	bwtaln.h	14;"	d
+SET_INF	stdaln.c	258;"	d	file:
+STATE_D	bwtgap.c	9;"	d	file:
+STATE_I	bwtgap.c	8;"	d	file:
+STATE_M	bwtgap.c	7;"	d	file:
+STDALN_VERSION	stdaln.h	70;"	d
+SUBDIRS	Makefile	/^SUBDIRS=	. bwt_gen$/;"	m
+SUBDIRS	bwt_gen/Makefile	/^SUBDIRS=$/;"	m
+SW_MIN_MAPQ	bwape.c	418;"	d	file:
+SW_MIN_MATCH_LEN	bwape.c	417;"	d	file:
+SaIndexRange	bwt_gen/bwt_gen.h	/^typedef struct SaIndexRange {$/;"	s
+SaIndexRange	bwt_gen/bwt_gen.h	/^} SaIndexRange;$/;"	t	typeref:struct:SaIndexRange
+TRUE	bwt_gen/bwt_gen.h	45;"	d
+TextLengthFromBytePacked	bwt_gen/bwt_gen.c	/^static unsigned int TextLengthFromBytePacked(unsigned int bytePackedLength, unsigned int bitPerChar,$/;"	f	file:
+Usage	solid2fastq.pl	/^Usage: solid2fastq.pl <in.title> <out.prefix>$/;"	l
+VERSION	bwt_gen/Makefile	/^VERSION=	0.1.0$/;"	m
+__AC_KHASH_H	khash.h	83;"	d
+__KSEQ_BASIC	kseq.h	130;"	d
+__KSEQ_READ	kseq.h	155;"	d
+__KSEQ_TYPE	kseq.h	195;"	d
+__KS_BASIC	kseq.h	43;"	d
+__KS_GETC	kseq.h	59;"	d
+__KS_GETUNTIL	kseq.h	84;"	d
+__KS_TYPE	kseq.h	33;"	d
+__QSUFSORT_H__	bwt_gen/QSufSort.h	30;"	d
+__ac_HASH_PRIME_SIZE	khash.h	120;"	d
+__ac_HASH_UPPER	khash.h	/^static const double __ac_HASH_UPPER = 0.77;$/;"	v
+__ac_X31_hash_string	khash.h	/^static inline khint_t __ac_X31_hash_string(const char *s)$/;"	f
+__ac_isdel	khash.h	133;"	d
+__ac_iseither	khash.h	134;"	d
+__ac_isempty	khash.h	132;"	d
+__ac_prime_list	khash.h	/^static const khint32_t __ac_prime_list[__ac_HASH_PRIME_SIZE] =$/;"	v
+__ac_set_isboth_false	khash.h	137;"	d
+__ac_set_isdel_false	khash.h	135;"	d
+__ac_set_isdel_true	khash.h	138;"	d
+__ac_set_isempty_false	khash.h	136;"	d
+__bwa_seqio_t	bwaseqio.c	/^struct __bwa_seqio_t {$/;"	s	file:
+__cigar_create	bwtaln.h	51;"	d
+__cigar_len	bwtaln.h	50;"	d
+__cigar_op	bwtaln.h	49;"	d
+__gen_ap	bwtsw2_aux.c	69;"	d	file:
+__gen_csbase	cs2nt.c	128;"	d	file:
+__hitG_lt	bwtsw2_core.c	30;"	d	file:
+__kstring_t	kseq.h	/^typedef struct __kstring_t {$/;"	s
+__kstring_t	kstring.h	/^typedef struct __kstring_t {$/;"	s
+__left_lt	bwtsw2_aux.c	21;"	d	file:
+__mempool_t	bwtsw2_core.c	/^typedef struct __mempool_t {$/;"	s	file:
+__occ_aux	bwt.c	/^static inline int __occ_aux(uint64_t y, int c)$/;"	f	file:
+__occ_aux4	bwt.c	153;"	d	file:
+__pairing_aux	bwape.c	170;"	d	file:
+__pairing_aux2	bwape.c	187;"	d	file:
+__rpac	bwtsw2_aux.c	78;"	d	file:
+__set_fixed	bwape.c	550;"	d	file:
+__set_left_coor	bwape.c	543;"	d	file:
+__set_rght_coor	bwape.c	536;"	d	file:
+_hsaip_lt	bwtsw2_chain.c	11;"	d	file:
+_opt	bwtsw2_aux.c	/^	const bsw2opt_t *_opt;$/;"	m	struct:__anon18	file:
+_seq	bwtsw2_aux.c	/^	bsw2seq_t *_seq;$/;"	m	struct:__anon18	file:
+a	bwape.c	/^	bwtint_t *a;$/;"	m	struct:__anon33	file:
+a	bwtaln.h	/^	uint32_t n_mm:8, n_gapo:8, n_gape:8, a:1;$/;"	m	struct:__anon2
+a	bwtsw2.h	/^	int a, b, q, r, t, qr, bw;$/;"	m	struct:__anon23
+aln	bwtaln.h	/^	bwt_aln1_t *aln;$/;"	m	struct:__anon4
+aln_1seq	simple_dp.c	/^static void aln_1seq(const seqs_t *ss, const char *name, int l, const char *s, char strand)$/;"	f	file:
+aln_aa_rev_table	stdaln.c	/^char *aln_aa_rev_table = "ARNDCQEGHILKMFPSTWYV*X-";$/;"	v
+aln_aa_table	stdaln.c	/^unsigned char aln_aa_table[256] = {$/;"	v
+aln_buf_t	bwape.c	/^} aln_buf_t;$/;"	t	typeref:struct:__anon36	file:
+aln_extend_core	stdaln.c	/^int aln_extend_core(unsigned char *seq1, int len1, unsigned char *seq2, int len2, const AlnParam *ap,$/;"	f
+aln_free_AlnAln	stdaln.c	/^void aln_free_AlnAln(AlnAln *aa)$/;"	f
+aln_global_core	stdaln.c	/^int aln_global_core(unsigned char *seq1, int len1, unsigned char *seq2, int len2, const AlnParam *ap,$/;"	f
+aln_init_AlnAln	stdaln.c	/^AlnAln *aln_init_AlnAln()$/;"	f
+aln_init_score_array	stdaln.c	/^void aln_init_score_array(unsigned char *seq, int len, int row, int *score_matrix, int **s_array)$/;"	f
+aln_local_core	stdaln.c	/^int aln_local_core(unsigned char *seq1, int len1, unsigned char *seq2, int len2, const AlnParam *ap,$/;"	f
+aln_mem	bwtsw2.h	/^	uint8_t *aln_mem;$/;"	m	struct:__anon26
+aln_nt16_rev_table	stdaln.c	/^char *aln_nt16_rev_table = "XAGRCMSVTWKDYHBN-";$/;"	v
+aln_nt16_table	stdaln.c	/^unsigned char aln_nt16_table[256] = {$/;"	v
+aln_nt4_rev_table	stdaln.c	/^char *aln_nt4_rev_table = "AGCTN-";$/;"	v
+aln_nt4_table	stdaln.c	/^unsigned char aln_nt4_table[256] = {$/;"	v
+aln_param_aa2aa	stdaln.c	/^AlnParam aln_param_aa2aa   = { 10,  2,  2, aln_sm_blosum62, 22, 50 };$/;"	v
+aln_param_blast	stdaln.c	/^AlnParam aln_param_blast   = {  5,  2,  2, aln_sm_blast, 5, 50 };$/;"	v
+aln_param_bwa	stdaln.c	/^AlnParam aln_param_bwa     = { 26,  9,  5, aln_sm_maq, 5, 50 };$/;"	v
+aln_param_nt2nt	stdaln.c	/^AlnParam aln_param_nt2nt   = {  8,  2,  2, aln_sm_nt, 16, 75 };$/;"	v
+aln_param_rd2rd	stdaln.c	/^AlnParam aln_param_rd2rd   = {  1, 19, 19, aln_sm_read, 16, 75 };$/;"	v
+aln_path2cigar	stdaln.c	/^uint16_t *aln_path2cigar(const path_t *path, int path_len, int *n_cigar)$/;"	f
+aln_path2cigar32	stdaln.c	/^uint32_t *aln_path2cigar32(const path_t *path, int path_len, int *n_cigar)$/;"	f
+aln_rev_table	simple_dp.c	/^unsigned char aln_rev_table[256] = {$/;"	v
+aln_score	bwtgap.c	11;"	d	file:
+aln_seqs	simple_dp.c	/^static void aln_seqs(const seqs_t *ss, const char *fn)$/;"	f	file:
+aln_sm_blast	stdaln.c	/^int aln_sm_blast[] = {$/;"	v
+aln_sm_blosum45	stdaln.c	/^int aln_sm_blosum45[] = {$/;"	v
+aln_sm_blosum62	stdaln.c	/^int aln_sm_blosum62[] = {$/;"	v
+aln_sm_hs	stdaln.c	/^int aln_sm_hs[] = {$/;"	v
+aln_sm_maq	stdaln.c	/^int aln_sm_maq[] = {$/;"	v
+aln_sm_nt	stdaln.c	/^int aln_sm_nt[] = {$/;"	v
+aln_sm_read	stdaln.c	/^int aln_sm_read[] = {$/;"	v
+aln_stdaln	stdaln.c	/^AlnAln *aln_stdaln(const char *seq1, const char *seq2, const AlnParam *ap, int type, int thres)$/;"	f
+aln_stdaln_aux	stdaln.c	/^AlnAln *aln_stdaln_aux(const char *seq1, const char *seq2, const AlnParam *ap,$/;"	f
+aln_trans_table_eu	stdaln.c	/^unsigned char aln_trans_table_eu[66] = {$/;"	v
+aln_trans_table_eu_char	stdaln.c	/^char *aln_trans_table_eu_char = "KKNNRRSSTTTTIMIIEEDDGGGGAAAAVVVVQQHHRRRRPPPPLLLL**YY*WCCSSSSLLFFX";$/;"	v
+amb	bntseq.h	/^	char amb;$/;"	m	struct:__anon31
+ambs	bntseq.h	/^	bntamb1_t *ambs; \/\/ n_holes elements$/;"	m	struct:__anon32
+anno	bntseq.h	/^	char *name, *anno;$/;"	m	struct:__anon30
+anns	bntseq.h	/^	bntann1_t *anns; \/\/ n_seqs elements$/;"	m	struct:__anon32
+ap_prior	bwape.c	/^	double avg, std, ap_prior;$/;"	m	struct:__anon34	file:
+ap_prior	bwtaln.h	/^	double ap_prior;$/;"	m	struct:__anon6
+array	bwtsw2_core.c	/^	bsw2cell_t *array;$/;"	m	struct:__anon40	file:
+availableWord	bwt_gen/bwt_gen.h	/^	unsigned int availableWord;$/;"	m	struct:BWTInc
+average	bwt_gen/bwt_gen.h	50;"	d
+avg	bwape.c	/^	double avg, std, ap_prior;$/;"	m	struct:__anon34	file:
+b	bwtsw2.h	/^	int a, b, q, r, t, qr, bw;$/;"	m	struct:__anon23
+bam1_aux	bamlite.h	72;"	d
+bam1_cigar	bamlite.h	67;"	d
+bam1_core_t	bamlite.h	/^} bam1_core_t;$/;"	t	typeref:struct:__anon14
+bam1_mstrand	bamlite.h	66;"	d
+bam1_qname	bamlite.h	68;"	d
+bam1_qual	bamlite.h	70;"	d
+bam1_seq	bamlite.h	69;"	d
+bam1_seqi	bamlite.h	71;"	d
+bam1_strand	bamlite.h	65;"	d
+bam1_t	bamlite.h	/^} bam1_t;$/;"	t	typeref:struct:__anon15
+bamFile	bamlite.h	/^typedef gzFile bamFile;$/;"	t
+bam_close	bamlite.h	10;"	d
+bam_destroy1	bamlite.h	75;"	d
+bam_dopen	bamlite.h	9;"	d
+bam_header_destroy	bamlite.c	/^void bam_header_destroy(bam_header_t *header)$/;"	f
+bam_header_init	bamlite.c	/^bam_header_t *bam_header_init()$/;"	f
+bam_header_read	bamlite.c	/^bam_header_t *bam_header_read(bamFile fp)$/;"	f
+bam_header_t	bamlite.h	/^} bam_header_t;$/;"	t	typeref:struct:__anon13
+bam_init1	bamlite.h	74;"	d
+bam_is_be	bamlite.c	/^int bam_is_be;$/;"	v
+bam_is_big_endian	bamlite.c	/^static inline int bam_is_big_endian()$/;"	f	file:
+bam_nt16_nt4_table	bwaseqio.c	/^static char bam_nt16_nt4_table[] = { 4, 0, 1, 4, 2, 4, 4, 4, 3, 4, 4, 4, 4, 4, 4, 4 };$/;"	v	file:
+bam_open	bamlite.h	8;"	d
+bam_read	bamlite.h	11;"	d
+bam_read1	bamlite.c	/^int bam_read1(bamFile fp, bam1_t *b)$/;"	f
+bam_swap_endian_2	bamlite.c	/^static inline uint16_t bam_swap_endian_2(uint16_t v)$/;"	f	file:
+bam_swap_endian_2p	bamlite.c	/^static inline void *bam_swap_endian_2p(void *x)$/;"	f	file:
+bam_swap_endian_4	bamlite.c	/^static inline uint32_t bam_swap_endian_4(uint32_t v)$/;"	f	file:
+bam_swap_endian_4p	bamlite.c	/^static inline void *bam_swap_endian_4p(void *x)$/;"	f	file:
+bam_swap_endian_8	bamlite.c	/^static inline uint64_t bam_swap_endian_8(uint64_t v)$/;"	f	file:
+bam_swap_endian_8p	bamlite.c	/^static inline void *bam_swap_endian_8p(void *x)$/;"	f	file:
+band_width	stdaln.h	/^	int band_width;$/;"	m	struct:__anon7
+bc	bwtaln.h	/^	char bc[BWA_MAX_BCLEN+1]; \/\/ null terminated; up to BWA_MAX_BCLEN bases$/;"	m	struct:__anon4
+beg	bwtsw2.h	/^	int beg, end;$/;"	m	struct:__anon24
+best	bwtgap.h	/^	int n_stacks, best, n_entries;$/;"	m	struct:__anon21
+bid	bwtaln.h	/^	int bid;$/;"	m	struct:__anon1
+bin	bamlite.h	/^	uint32_t bin:16, qual:8, l_qname:8;$/;"	m	struct:__anon14
+bns	bwtsw2_aux.c	/^	const bntseq_t *bns;$/;"	m	struct:__anon18	file:
+bns_coor_pac2real	bntseq.c	/^int bns_coor_pac2real(const bntseq_t *bns, int64_t pac_coor, int len, int32_t *real_seq)$/;"	f
+bns_destroy	bntseq.c	/^void bns_destroy(bntseq_t *bns)$/;"	f
+bns_dump	bntseq.c	/^void bns_dump(const bntseq_t *bns, const char *prefix)$/;"	f
+bns_fasta2bntseq	bntseq.c	/^int64_t bns_fasta2bntseq(gzFile fp_fa, const char *prefix)$/;"	f
+bns_pac	bwtaln.h	28;"	d
+bns_restore	bntseq.c	/^bntseq_t *bns_restore(const char *prefix)$/;"	f
+bns_restore_core	bntseq.c	/^bntseq_t *bns_restore_core(const char *ann_filename, const char* amb_filename, const char* pac_filename)$/;"	f
+bntamb1_t	bntseq.h	/^} bntamb1_t;$/;"	t	typeref:struct:__anon31
+bntann1_t	bntseq.h	/^} bntann1_t;$/;"	t	typeref:struct:__anon30
+bntseq_t	bntseq.h	/^} bntseq_t;$/;"	t	typeref:struct:__anon32
+bsw2_aln	bwtsw2_aux.c	/^void bsw2_aln(const bsw2opt_t *opt, const bntseq_t *bns, bwt_t * const target[2], const char *fn)$/;"	f
+bsw2_aln1_core	bwtsw2_aux.c	/^static bwtsw2_t *bsw2_aln1_core(const bsw2opt_t *opt, const bntseq_t *bns, uint8_t *pac, const bwt_t *target,$/;"	f	file:
+bsw2_aln_core	bwtsw2_aux.c	/^static void bsw2_aln_core(int tid, bsw2seq_t *_seq, const bsw2opt_t *_opt, const bntseq_t *bns, uint8_t *pac, bwt_t * const target[2])$/;"	f	file:
+bsw2_chain_filter	bwtsw2_chain.c	/^void bsw2_chain_filter(const bsw2opt_t *opt, int len, bwtsw2_t *b[2])$/;"	f
+bsw2_connectivity	bwtsw2_core.c	/^static khash_t(64) *bsw2_connectivity(const bwtl_t *b)$/;"	f
+bsw2_core	bwtsw2_core.c	/^bwtsw2_t **bsw2_core(const bsw2opt_t *opt, const bwtl_t *target, const bwt_t *query, bsw2global_t *pool)$/;"	f
+bsw2_debug_hits	bwtsw2_aux.c	/^void bsw2_debug_hits(const bwtsw2_t *b)$/;"	f
+bsw2_destroy	bwtsw2_aux.c	/^void bsw2_destroy(bwtsw2_t *b)$/;"	f
+bsw2_extend_left	bwtsw2_aux.c	/^void bsw2_extend_left(const bsw2opt_t *opt, bwtsw2_t *b, uint8_t *_query, int lq, uint8_t *pac, uint32_t l_pac, int is_rev, uint8_t *_mem)$/;"	f
+bsw2_extend_rght	bwtsw2_aux.c	/^void bsw2_extend_rght(const bsw2opt_t *opt, bwtsw2_t *b, uint8_t *query, int lq, uint8_t *pac, uint32_t l_pac, int is_rev, uint8_t *_mem)$/;"	f
+bsw2_global_destroy	bwtsw2_core.c	/^void bsw2_global_destroy(bsw2global_t *pool)$/;"	f
+bsw2_global_init	bwtsw2_core.c	/^bsw2global_t *bsw2_global_init()$/;"	f
+bsw2_init_opt	bwtsw2_aux.c	/^bsw2opt_t *bsw2_init_opt()$/;"	f
+bsw2_resolve_duphits	bwtsw2_core.c	/^int bsw2_resolve_duphits(const bwt_t *bwt, bwtsw2_t *b, int IS)$/;"	f
+bsw2_resolve_query_overlaps	bwtsw2_core.c	/^int bsw2_resolve_query_overlaps(bwtsw2_t *b, float mask_level)$/;"	f
+bsw2cell_t	bwtsw2_core.c	/^} bsw2cell_t;$/;"	t	typeref:struct:__anon39	file:
+bsw2entry_p	bwtsw2_core.c	/^} bsw2entry_t, *bsw2entry_p;$/;"	t	typeref:struct:__anon40	file:
+bsw2entry_t	bwtsw2_core.c	/^} bsw2entry_t, *bsw2entry_p;$/;"	t	typeref:struct:__anon40	file:
+bsw2global_t	bwtsw2.h	/^} bsw2global_t;$/;"	t	typeref:struct:__anon26
+bsw2hit_t	bwtsw2.h	/^} bsw2hit_t;$/;"	t	typeref:struct:__anon24
+bsw2opt_t	bwtsw2.h	/^} bsw2opt_t;$/;"	t	typeref:struct:__anon23
+bsw2seq1_t	bwtsw2_aux.c	/^} bsw2seq1_t;$/;"	t	typeref:struct:__anon16	file:
+bsw2seq_t	bwtsw2_aux.c	/^} bsw2seq_t;$/;"	t	typeref:struct:__anon17	file:
+bsw2stack_t	bwtsw2_core.c	/^} bsw2stack_t;$/;"	t	typeref:struct:__anon41	file:
+buildSize	bwt_gen/bwt_gen.h	/^	unsigned int buildSize;$/;"	m	struct:BWTInc
+bw	bwtsw2.h	/^	int a, b, q, r, t, qr, bw;$/;"	m	struct:__anon23
+bwa_aln	bwtaln.c	/^int bwa_aln(int argc, char *argv[])$/;"	f
+bwa_aln2seq	bwase.c	/^void bwa_aln2seq(int n_aln, const bwt_aln1_t *aln, bwa_seq_t *s)$/;"	f
+bwa_aln2seq_core	bwase.c	/^void bwa_aln2seq_core(int n_aln, const bwt_aln1_t *aln, bwa_seq_t *s, int set_main, int n_multi)$/;"	f
+bwa_aln_core	bwtaln.c	/^void bwa_aln_core(const char *prefix, const char *fn_fa, const gap_opt_t *opt)$/;"	f
+bwa_aln_path2cigar	bwtaln.c	/^bwa_cigar_t *bwa_aln_path2cigar(const path_t *path, int path_len, int *n_cigar)$/;"	f
+bwa_approx_mapQ	bwase.c	/^int bwa_approx_mapQ(const bwa_seq_t *p, int mm)$/;"	f
+bwa_bam_open	bwaseqio.c	/^bwa_seqio_t *bwa_bam_open(const char *fn, int which)$/;"	f
+bwa_bwt2sa	bwtmisc.c	/^int bwa_bwt2sa(int argc, char *argv[])$/;"	f
+bwa_bwtsw2	bwtsw2_main.c	/^int bwa_bwtsw2(int argc, char *argv[])$/;"	f
+bwa_bwtupdate	bwtmisc.c	/^int bwa_bwtupdate(int argc, char *argv[])$/;"	f
+bwa_cal_maxdiff	bwtaln.c	/^int bwa_cal_maxdiff(int l, double err, double thres)$/;"	f
+bwa_cal_md1	bwase.c	/^char *bwa_cal_md1(int n_cigar, bwa_cigar_t *cigar, int len, bwtint_t pos, ubyte_t *seq,$/;"	f
+bwa_cal_pac_pos	bwase.c	/^void bwa_cal_pac_pos(const char *prefix, int n_seqs, bwa_seq_t *seqs, int max_mm, float fnr)$/;"	f
+bwa_cal_pac_pos_core	bwase.c	/^void bwa_cal_pac_pos_core(const bwt_t *forward_bwt, const bwt_t *reverse_bwt, bwa_seq_t *seq, const int max_mm, const float fnr)$/;"	f
+bwa_cal_pac_pos_pe	bwape.c	/^int bwa_cal_pac_pos_pe(const char *prefix, bwt_t *const _bwt[2], int n_seqs, bwa_seq_t *seqs[2], FILE *fp_sa[2], isize_info_t *ii,$/;"	f
+bwa_cal_sa_reg_gap	bwtaln.c	/^void bwa_cal_sa_reg_gap(int tid, bwt_t *const bwt[2], int n_seqs, bwa_seq_t *seqs, const gap_opt_t *opt)$/;"	f
+bwa_cigar_t	bwtaln.h	/^typedef uint16_t bwa_cigar_t;$/;"	t
+bwa_correct_trimmed	bwase.c	/^void bwa_correct_trimmed(bwa_seq_t *s)$/;"	f
+bwa_cs2nt_core	cs2nt.c	/^void bwa_cs2nt_core(bwa_seq_t *p, bwtint_t l_pac, ubyte_t *pac)$/;"	f
+bwa_escape	bwase.c	/^char *bwa_escape(char *s)$/;"	f
+bwa_fa2pac	bntseq.c	/^int bwa_fa2pac(int argc, char *argv[])$/;"	f
+bwa_free_read_seq	bwaseqio.c	/^void bwa_free_read_seq(int n_seqs, bwa_seq_t *seqs)$/;"	f
+bwa_index	bwtindex.c	/^int bwa_index(int argc, char *argv[])$/;"	f
+bwa_init_pe_opt	bwape.c	/^pe_opt_t *bwa_init_pe_opt()$/;"	f
+bwa_open_nt	bwase.c	/^bntseq_t *bwa_open_nt(const char *prefix)$/;"	f
+bwa_open_reads	bwtaln.c	/^bwa_seqio_t *bwa_open_reads(int mode, const char *fn_fa)$/;"	f
+bwa_pac2bwt	bwtmisc.c	/^int bwa_pac2bwt(int argc, char *argv[])$/;"	f
+bwa_pac2cspac	bwtmisc.c	/^int bwa_pac2cspac(int argc, char *argv[])$/;"	f
+bwa_pac2cspac_core	bwtmisc.c	/^uint8_t *bwa_pac2cspac_core(const bntseq_t *bns)$/;"	f
+bwa_pac_rev	bwtmisc.c	/^int bwa_pac_rev(int argc, char *argv[])$/;"	f
+bwa_pac_rev_core	bwtmisc.c	/^void bwa_pac_rev_core(const char *fn, const char *fn_rev)$/;"	f
+bwa_paired_sw	bwape.c	/^ubyte_t *bwa_paired_sw(const bntseq_t *bns, const ubyte_t *_pacseq, int n_seqs, bwa_seq_t *seqs[2], const pe_opt_t *popt, const isize_info_t *ii)$/;"	f
+bwa_print_sam1	bwase.c	/^void bwa_print_sam1(const bntseq_t *bns, bwa_seq_t *p, const bwa_seq_t *mate, int mode, int max_top2)$/;"	f
+bwa_print_sam_PG	main.c	/^void bwa_print_sam_PG()$/;"	f
+bwa_print_sam_SQ	bwase.c	/^void bwa_print_sam_SQ(const bntseq_t *bns)$/;"	f
+bwa_read_bam	bwaseqio.c	/^static bwa_seq_t *bwa_read_bam(bwa_seqio_t *bs, int n_needed, int *n, int is_comp, int trim_qual)$/;"	f	file:
+bwa_read_seq	bwaseqio.c	/^bwa_seq_t *bwa_read_seq(bwa_seqio_t *bs, int n_needed, int *n, int mode, int trim_qual)$/;"	f
+bwa_refine_gapped	bwase.c	/^void bwa_refine_gapped(const bntseq_t *bns, int n_seqs, bwa_seq_t *seqs, ubyte_t *_pacseq, bntseq_t *ntbns)$/;"	f
+bwa_rg_id	bwase.c	/^char *bwa_rg_line, *bwa_rg_id;$/;"	v
+bwa_rg_line	bwase.c	/^char *bwa_rg_line, *bwa_rg_id;$/;"	v
+bwa_sai2sam_pe	bwape.c	/^int bwa_sai2sam_pe(int argc, char *argv[])$/;"	f
+bwa_sai2sam_pe_core	bwape.c	/^void bwa_sai2sam_pe_core(const char *prefix, char *const fn_sa[2], char *const fn_fa[2], pe_opt_t *popt)$/;"	f
+bwa_sai2sam_se	bwase.c	/^int bwa_sai2sam_se(int argc, char *argv[])$/;"	f
+bwa_sai2sam_se_core	bwase.c	/^void bwa_sai2sam_se_core(const char *prefix, const char *fn_sa, const char *fn_fa, int n_occ)$/;"	f
+bwa_seq_close	bwaseqio.c	/^void bwa_seq_close(bwa_seqio_t *bs)$/;"	f
+bwa_seq_len	bwtmisc.c	/^int64_t bwa_seq_len(const char *fn_pac)$/;"	f
+bwa_seq_open	bwaseqio.c	/^bwa_seqio_t *bwa_seq_open(const char *fn)$/;"	f
+bwa_seq_t	bwtaln.h	/^} bwa_seq_t;$/;"	t	typeref:struct:__anon4
+bwa_seqio_t	bwtaln.h	/^typedef struct __bwa_seqio_t bwa_seqio_t;$/;"	t	typeref:struct:__bwa_seqio_t
+bwa_set_rg	bwase.c	/^int bwa_set_rg(const char *s)$/;"	f
+bwa_stdsw	simple_dp.c	/^int bwa_stdsw(int argc, char *argv[])$/;"	f
+bwa_sw_core	bwape.c	/^bwa_cigar_t *bwa_sw_core(bwtint_t l_pac, const ubyte_t *pacseq, int len, const ubyte_t *seq, int64_t *beg, int reglen,$/;"	f
+bwa_trim_read	bwaseqio.c	/^int bwa_trim_read(int trim_qual, bwa_seq_t *p)$/;"	f
+bwase_initialize	bwase.c	/^void bwase_initialize() $/;"	f
+bwt	bwt.h	/^	uint32_t *bwt; \/\/ BWT$/;"	m	struct:__anon38
+bwt	bwt_gen/bwt_gen.h	/^	BWT *bwt;$/;"	m	struct:BWTInc
+bwt	bwt_lite.h	/^	uint32_t *bwt, *occ, *sa, L2[5];$/;"	m	struct:__anon22
+bwt	bwtaln.c	/^	bwt_t *bwt[2];$/;"	m	struct:__anon12	file:
+bwtCode	bwt_gen/bwt_gen.h	/^	unsigned int *bwtCode;				\/\/ BWT code$/;"	m	struct:BWT
+bwtSizeInWord	bwt_gen/bwt_gen.h	/^	unsigned int bwtSizeInWord;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+bwt_2occ	bwt.c	/^inline void bwt_2occ(const bwt_t *bwt, bwtint_t k, bwtint_t l, ubyte_t c, bwtint_t *ok, bwtint_t *ol)$/;"	f
+bwt_2occ4	bwt.c	/^inline void bwt_2occ4(const bwt_t *bwt, bwtint_t k, bwtint_t l, bwtint_t cntk[4], bwtint_t cntl[4])$/;"	f
+bwt_B0	bwt.h	61;"	d
+bwt_B00	bwtmisc.c	120;"	d	file:
+bwt_aln1_t	bwtaln.h	/^} bwt_aln1_t;$/;"	t	typeref:struct:__anon2
+bwt_bwt	bwt.h	56;"	d
+bwt_bwtgen	bwt_gen/bwt_gen.c	/^void bwt_bwtgen(const char *fn_pac, const char *fn_bwt)$/;"	f
+bwt_bwtgen_main	bwt_gen/bwt_gen.c	/^int bwt_bwtgen_main(int argc, char *argv[])$/;"	f
+bwt_bwtupdate_core	bwtmisc.c	/^void bwt_bwtupdate_core(bwt_t *bwt)$/;"	f
+bwt_cal_sa	bwt.c	/^void bwt_cal_sa(bwt_t *bwt, int intv)$/;"	f
+bwt_cal_width	bwtaln.c	/^static int bwt_cal_width(const bwt_t *rbwt, int len, const ubyte_t *str, bwt_width_t *width)$/;"	f	file:
+bwt_destroy	bwtio.c	/^void bwt_destroy(bwt_t *bwt)$/;"	f
+bwt_dump_bwt	bwtio.c	/^void bwt_dump_bwt(const char *fn, const bwt_t *bwt)$/;"	f
+bwt_dump_sa	bwtio.c	/^void bwt_dump_sa(const char *fn, const bwt_t *bwt)$/;"	f
+bwt_gen_cnt_table	bwt.c	/^void bwt_gen_cnt_table(bwt_t *bwt)$/;"	f
+bwt_invPsi	bwt.h	66;"	d
+bwt_match_exact	bwt.c	/^int bwt_match_exact(const bwt_t *bwt, int len, const ubyte_t *str, bwtint_t *sa_begin, bwtint_t *sa_end)$/;"	f
+bwt_match_exact_alt	bwt.c	/^int bwt_match_exact_alt(const bwt_t *bwt, int len, const ubyte_t *str, bwtint_t *k0, bwtint_t *l0)$/;"	f
+bwt_match_gap	bwtgap.c	/^bwt_aln1_t *bwt_match_gap(bwt_t *const bwts[2], int len, const ubyte_t *seq[2], bwt_width_t *w[2],$/;"	f
+bwt_multi1_t	bwtaln.h	/^} bwt_multi1_t;$/;"	t	typeref:struct:__anon3
+bwt_occ	bwt.c	/^inline bwtint_t bwt_occ(const bwt_t *bwt, bwtint_t k, ubyte_t c)$/;"	f
+bwt_occ4	bwt.c	/^inline void bwt_occ4(const bwt_t *bwt, bwtint_t k, bwtint_t cnt[4])$/;"	f
+bwt_occ_intv	bwt.h	63;"	d
+bwt_pac2bwt	bwtmisc.c	/^bwt_t *bwt_pac2bwt(const char *fn_pac, int use_is)$/;"	f
+bwt_restore_bwt	bwtio.c	/^bwt_t *bwt_restore_bwt(const char *fn)$/;"	f
+bwt_restore_sa	bwtio.c	/^void bwt_restore_sa(const char *fn, bwt_t *bwt)$/;"	f
+bwt_sa	bwt.c	/^bwtint_t bwt_sa(const bwt_t *bwt, bwtint_t k)$/;"	f
+bwt_size	bwt.h	/^	bwtint_t bwt_size; \/\/ size of bwt, about seq_len\/4$/;"	m	struct:__anon38
+bwt_size	bwt_lite.h	/^	uint32_t seq_len, bwt_size, n_occ;$/;"	m	struct:__anon22
+bwt_t	bwt.h	/^} bwt_t;$/;"	t	typeref:struct:__anon38
+bwt_width_t	bwtaln.h	/^} bwt_width_t;$/;"	t	typeref:struct:__anon1
+bwtint_t	bwt.h	/^typedef uint32_t bwtint_t;$/;"	t
+bwtl_2occ4	bwt_lite.c	/^inline void bwtl_2occ4(const bwtl_t *bwt, uint32_t k, uint32_t l, uint32_t cntk[4], uint32_t cntl[4])$/;"	f
+bwtl_B0	bwt_lite.h	13;"	d
+bwtl_destroy	bwt_lite.c	/^void bwtl_destroy(bwtl_t *bwt)$/;"	f
+bwtl_occ	bwt_lite.c	/^inline uint32_t bwtl_occ(const bwtl_t *bwt, uint32_t k, uint8_t c)$/;"	f
+bwtl_occ4	bwt_lite.c	/^inline void bwtl_occ4(const bwtl_t *bwt, uint32_t k, uint32_t cnt[4])$/;"	f
+bwtl_seq2bwtl	bwt_lite.c	/^bwtl_t *bwtl_seq2bwtl(int len, const uint8_t *seq)$/;"	f
+bwtl_t	bwt_lite.h	/^} bwtl_t;$/;"	t	typeref:struct:__anon22
+bwtsw2_t	bwtsw2.h	/^} bwtsw2_t;$/;"	t	typeref:struct:__anon25
+c1	bwtaln.h	/^	uint64_t c1:28, c2:28, seQ:8; \/\/ number of top1 and top2 hits; single-end mapQ$/;"	m	struct:__anon4
+c2	bwtaln.h	/^	uint64_t c1:28, c2:28, seQ:8; \/\/ number of top1 and top2 hits; single-end mapQ$/;"	m	struct:__anon4
+ceilLog2	bwt_gen/bwt_gen.c	/^static unsigned int ceilLog2(const unsigned int input)$/;"	f	file:
+chain	bwtsw2_chain.c	/^	int chain; \/\/ also reuse as a counter$/;"	m	struct:__anon37	file:
+chaining	bwtsw2_chain.c	/^static int chaining(const bsw2opt_t *opt, int shift, int n, hsaip_t *z, hsaip_t *chain)$/;"	f	file:
+chr	is.c	30;"	d	file:
+chunk_size	bwtsw2.h	/^	int n_threads, chunk_size;$/;"	m	struct:__anon23
+cigar	bwtaln.h	/^	bwa_cigar_t *cigar;$/;"	m	struct:__anon3
+cigar	bwtaln.h	/^	bwa_cigar_t *cigar;$/;"	m	struct:__anon4
+cigar	bwtsw2.h	/^	uint32_t **cigar;$/;"	m	struct:__anon25
+cigar32	stdaln.h	/^	uint32_t *cigar32;$/;"	m	struct:__anon9
+clip_len	bwtaln.h	/^	int clip_len;$/;"	m	struct:__anon4
+cnt	bwtsw2_core.c	/^	int cnt; \/\/ if cnt!=0, then there must be memory leak$/;"	m	struct:__mempool_t	file:
+cnt_table	bwt.h	/^	uint32_t cnt_table[256];$/;"	m	struct:__anon38
+cnt_table	bwt_lite.h	/^	uint32_t cnt_table[256];$/;"	m	struct:__anon22
+coef	bwtsw2.h	/^	float yita, mask_level, coef;$/;"	m	struct:__anon23
+core	bamlite.h	/^	bam1_core_t core;$/;"	m	struct:__anon15
+cpos	bwtsw2_core.c	/^	int cpos[4];$/;"	m	struct:__anon39	file:
+cs2nt_DP	cs2nt.c	/^void cs2nt_DP(int size, const uint8_t *nt_ref, const uint8_t *cs_read, uint8_t *nt_read, uint8_t *btarray)$/;"	f
+cs2nt_nt_qual	cs2nt.c	/^uint8_t *cs2nt_nt_qual(int size, const uint8_t *nt_read, const uint8_t *cs_read, uint8_t *tarray)$/;"	f
+ctype	stdaln.h	/^	unsigned char ctype;$/;"	m	struct:__anon8
+cumulativeCountInCurrentBuild	bwt_gen/bwt_gen.h	/^	unsigned int *cumulativeCountInCurrentBuild;$/;"	m	struct:BWTInc
+cumulativeFreq	bwt_gen/bwt_gen.h	/^	unsigned int *cumulativeFreq;		\/\/ cumulative frequency$/;"	m	struct:BWT
+cut_tail	bwtsw2_core.c	/^static void cut_tail(bsw2entry_t *u, int T, bsw2entry_t *aux)$/;"	f	file:
+data	bamlite.h	/^	uint8_t *data;$/;"	m	struct:__anon15
+data_len	bamlite.h	/^	int l_aux, data_len, m_data;$/;"	m	struct:__anon15
+decodeTable	bwt_gen/bwt_gen.h	/^	unsigned int *decodeTable;			\/\/ For decoding BWT by table lookup$/;"	m	struct:BWT
+decodeTableGenerated	bwt_gen/bwt_gen.h	/^	unsigned int decodeTableGenerated;	\/\/ == TRUE if decode table is generated on load and will be freed$/;"	m	struct:BWT
+depth	ksort.h	/^	int depth;$/;"	m	struct:__anon27
+dpcell_t	stdaln.c	/^} dpcell_t;$/;"	t	typeref:struct:__anon10	file:
+dpscore_t	stdaln.c	/^} dpscore_t;$/;"	t	typeref:struct:__anon11	file:
+dummy	bwtaln.h	/^	uint32_t len:20, strand:1, type:2, dummy:1, extra_flag:8;$/;"	m	struct:__anon4
+end	bwtsw2.h	/^	int beg, end;$/;"	m	struct:__anon24
+end1	stdaln.h	/^	int start1, end1; \/* start and end of the first sequence, coordinations are 1-based *\/$/;"	m	struct:__anon9
+end2	stdaln.h	/^	int start2, end2; \/* start and end of the second sequence, coordinations are 1-based *\/$/;"	m	struct:__anon9
+endSaIndex	bwt_gen/bwt_gen.h	/^	unsigned int endSaIndex;$/;"	m	struct:SaIndexRange
+err_fatal	utils.c	/^void err_fatal(const char *header, const char *fmt, ...)$/;"	f
+err_fatal_simple	utils.h	43;"	d
+err_fatal_simple_core	utils.c	/^void err_fatal_simple_core(const char *func, const char *msg)$/;"	f
+err_fclose	utils.c	/^int err_fclose(FILE *stream) $/;"	f
+err_fflush	utils.c	/^int err_fflush(FILE *stream) $/;"	f
+err_fprintf	utils.c	/^int err_fprintf(FILE *stream, const char *format, ...) $/;"	f
+err_fwrite	utils.c	/^size_t err_fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)$/;"	f
+err_printf	utils.c	/^int err_printf(const char *format, ...) $/;"	f
+err_xopen_core	utils.c	/^FILE *err_xopen_core(const char *func, const char *fn, const char *mode)$/;"	f
+err_xreopen_core	utils.c	/^FILE *err_xreopen_core(const char *func, const char *fn, const char *mode, FILE *fp)$/;"	f
+err_xzopen_core	utils.c	/^gzFile err_xzopen_core(const char *func, const char *fn, const char *mode)$/;"	f
+extra_flag	bwtaln.h	/^	uint32_t len:20, strand:1, type:2, dummy:1, extra_flag:8;$/;"	m	struct:__anon4
+fill_cell	bwtsw2_core.c	/^static inline int fill_cell(const bsw2opt_t *o, int match_score, bsw2cell_t *c[4])$/;"	f	file:
+firstCharInLastIteration	bwt_gen/bwt_gen.h	/^	unsigned int firstCharInLastIteration;$/;"	m	struct:BWTInc
+fix_cigar	bwtsw2_aux.c	/^static int fix_cigar(const char *qname, const bntseq_t *bns, bsw2hit_t *p, int n_cigar, uint32_t *cigar)$/;"	f	file:
+flag	bamlite.h	/^	uint32_t flag:16, n_cigar:16;$/;"	m	struct:__anon14
+flag	bwtsw2.h	/^	uint32_t k, l, flag:18, n_seeds:14;$/;"	m	struct:__anon24
+flag	bwtsw2_chain.c	/^	uint32_t flag:1, idx:31;$/;"	m	struct:__anon37	file:
+flag_fr	bwtsw2_aux.c	/^static void flag_fr(bwtsw2_t *b[2])$/;"	f	file:
+fnr	bwtaln.h	/^	float fnr;$/;"	m	struct:__anon5
+force_isize	bwtaln.h	/^	int max_isize, force_isize;$/;"	m	struct:__anon6
+fp	bwaseqio.c	/^	bamFile fp;$/;"	m	struct:__bwa_seqio_t	file:
+fp_pac	bntseq.h	/^	FILE *fp_pac;$/;"	m	struct:__anon32
+full_len	bwtaln.h	/^	uint32_t full_len:20, nm:12;$/;"	m	struct:__anon4
+g_aa	simple_dp.c	/^static int g_is_global = 0, g_thres = 1, g_strand = 0, g_aa = 0;$/;"	v	file:
+g_aln_param	simple_dp.c	/^static AlnParam g_aln_param;$/;"	v	file:
+g_default_cell	bwtsw2_core.c	/^static const bsw2cell_t g_default_cell = { 0, 0, MINUS_INF, MINUS_INF, MINUS_INF, 0, 0, 0, -1, -1, {-1, -1, -1, -1} };$/;"	v	file:
+g_hash	bwape.c	/^static kh_64_t *g_hash;$/;"	v	file:
+g_is_global	simple_dp.c	/^static int g_is_global = 0, g_thres = 1, g_strand = 0, g_aa = 0;$/;"	v	file:
+g_log_n	bwase.c	/^int g_log_n[256];$/;"	v
+g_strand	simple_dp.c	/^static int g_is_global = 0, g_thres = 1, g_strand = 0, g_aa = 0;$/;"	v	file:
+g_thres	simple_dp.c	/^static int g_is_global = 0, g_thres = 1, g_strand = 0, g_aa = 0;$/;"	v	file:
+gap	bwtaln.h	/^	uint32_t n_cigar:15, gap:8, mm:8, strand:1;$/;"	m	struct:__anon3
+gap_destroy_stack	bwtgap.c	/^void gap_destroy_stack(gap_stack_t *stack)$/;"	f
+gap_end	stdaln.h	/^	int gap_end;$/;"	m	struct:__anon7
+gap_entry_t	bwtgap.h	/^} gap_entry_t;$/;"	t	typeref:struct:__anon19
+gap_ext	stdaln.h	/^	int gap_ext;$/;"	m	struct:__anon7
+gap_init_opt	bwtaln.c	/^gap_opt_t *gap_init_opt()$/;"	f
+gap_init_stack	bwtgap.c	/^gap_stack_t *gap_init_stack(int max_mm, int max_gapo, int max_gape, const gap_opt_t *opt)$/;"	f
+gap_open	stdaln.h	/^	int gap_open;$/;"	m	struct:__anon7
+gap_opt_t	bwtaln.h	/^} gap_opt_t;$/;"	t	typeref:struct:__anon5
+gap_pop	bwtgap.c	/^static inline void gap_pop(gap_stack_t *stack, gap_entry_t *e)$/;"	f	file:
+gap_push	bwtgap.c	/^static inline void gap_push(gap_stack_t *stack, int a, int i, bwtint_t k, bwtint_t l, int n_mm, int n_gapo, int n_gape,$/;"	f	file:
+gap_reset_stack	bwtgap.c	/^static void gap_reset_stack(gap_stack_t *stack)$/;"	f	file:
+gap_shadow	bwtgap.c	/^static inline void gap_shadow(int x, int len, bwtint_t max, int last_diff_pos, bwt_width_t *w)$/;"	f	file:
+gap_stack1_t	bwtgap.h	/^} gap_stack1_t;$/;"	t	typeref:struct:__anon20
+gap_stack_t	bwtgap.h	/^} gap_stack_t;$/;"	t	typeref:struct:__anon21
+gen_cigar	bwtsw2_aux.c	/^static void gen_cigar(const bsw2opt_t *opt, int lq, uint8_t *seq[2], uint8_t *pac, bwtsw2_t *b)$/;"	f	file:
+getBuckets	is.c	/^static void getBuckets(const int *C, int *B, int k, int end)$/;"	f	file:
+getCounts	is.c	/^static void getCounts(const unsigned char *T, int *C, int n, int k, int cs)$/;"	f	file:
+gi	bntseq.h	/^	uint32_t gi;$/;"	m	struct:__anon30
+hard_clip	bwtsw2.h	/^	int z, is, t_seeds, hard_clip;$/;"	m	struct:__anon23
+hash_64	bwape.c	/^static inline uint64_t hash_64(uint64_t key)$/;"	f	file:
+high	bwape.c	/^	bwtint_t low, high, high_bayesian;$/;"	m	struct:__anon34	file:
+high_bayesian	bwape.c	/^	bwtint_t low, high, high_bayesian;$/;"	m	struct:__anon34	file:
+hits	bwtsw2.h	/^	bsw2hit_t *hits;$/;"	m	struct:__anon25
+hsaip_t	bwtsw2_chain.c	/^} hsaip_t;$/;"	t	typeref:struct:__anon37	file:
+i	stdaln.h	/^	int i, j;$/;"	m	struct:__anon8
+idx	bwtsw2_chain.c	/^	uint32_t flag:1, idx:31;$/;"	m	struct:__anon37	file:
+incMaxBuildSize	bwt_gen/bwt_gen.h	/^	unsigned int incMaxBuildSize;$/;"	m	struct:BWTInc
+indel_end_skip	bwtaln.h	/^	int indel_end_skip, max_del_occ, max_entries;$/;"	m	struct:__anon5
+induceSA	is.c	/^static void induceSA(const unsigned char *T, int *SA, int *C, int *B, int n, int k, int cs)$/;"	f	file:
+infer_isize	bwape.c	/^static int infer_isize(int n_seqs, bwa_seq_t *seqs[2], isize_info_t *ii, double ap_prior, int64_t L)$/;"	f	file:
+info	bwtgap.h	/^	u_int32_t info; \/\/ score<<21 | a<<20 | i$/;"	m	struct:__anon19
+init_bwtsw2	bwtsw2_core.c	/^static void init_bwtsw2(const bwtl_t *target, const bwt_t *query, bsw2stack_t *s)$/;"	f	file:
+initialMaxBuildSize	bwt_gen/bwt_gen.h	/^	unsigned int initialMaxBuildSize;$/;"	m	struct:BWTInc
+initializeVAL	bwt_gen/bwt_gen.c	/^static void initializeVAL(unsigned int *startAddr, const unsigned int length, const unsigned int initValue)$/;"	f	file:
+inline	khash.h	114;"	d
+int_log2	bwtgap.c	/^static inline int int_log2(uint32_t v)$/;"	f	file:
+inverseSa	bwt_gen/bwt_gen.h	/^	unsigned int *inverseSa;			\/\/ Inverse SA stored explicitly$/;"	m	struct:BWT
+inverseSa0	bwt_gen/bwt_gen.h	/^	unsigned int inverseSa0;			\/\/ SA-1[0]$/;"	m	struct:BWT
+inverseSaInterval	bwt_gen/bwt_gen.h	/^	unsigned int inverseSaInterval;		\/\/ interval between two inverse SA stored explicitly$/;"	m	struct:BWT
+inverseSaSize	bwt_gen/bwt_gen.h	/^	unsigned int inverseSaSize;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+is	bwtsw2.h	/^	int z, is, t_seeds, hard_clip;$/;"	m	struct:__anon23
+is_bam	bwaseqio.c	/^	int is_bam, which; \/\/ 1st bit: read1, 2nd bit: read2, 3rd: SE$/;"	m	struct:__bwa_seqio_t	file:
+is_bwt	is.c	/^int is_bwt(ubyte_t *T, int n)$/;"	f
+is_preload	bwtaln.h	/^	int type, is_sw, is_preload;$/;"	m	struct:__anon6
+is_sa	is.c	/^int is_sa(const ubyte_t *T, int *SA, int n)$/;"	f
+is_sw	bwtaln.h	/^	int type, is_sw, is_preload;$/;"	m	struct:__anon6
+isize	bamlite.h	/^	int32_t isize;$/;"	m	struct:__anon14
+isize_info_t	bwape.c	/^} isize_info_t;$/;"	t	typeref:struct:__anon34	file:
+j	stdaln.h	/^	int i, j;$/;"	m	struct:__anon8
+k	bwtaln.h	/^	bwtint_t k, l;$/;"	m	struct:__anon2
+k	bwtgap.h	/^	bwtint_t k, l; \/\/ (k,l) is the SA region of [i,n-1]$/;"	m	struct:__anon19
+k	bwtsw2.h	/^	uint32_t k, l, flag:18, n_seeds:14;$/;"	m	struct:__anon24
+kh_begin	khash.h	435;"	d
+kh_clear	khash.h	360;"	d
+kh_cstr_t	khash.h	/^typedef const char *kh_cstr_t;$/;"	t
+kh_del	khash.h	397;"	d
+kh_destroy	khash.h	353;"	d
+kh_end	khash.h	442;"	d
+kh_exist	khash.h	406;"	d
+kh_get	khash.h	389;"	d
+kh_init	khash.h	346;"	d
+kh_int64_hash_equal	khash.h	308;"	d
+kh_int64_hash_func	khash.h	304;"	d
+kh_int_hash_equal	khash.h	298;"	d
+kh_int_hash_func	khash.h	294;"	d
+kh_key	khash.h	414;"	d
+kh_n_buckets	khash.h	456;"	d
+kh_put	khash.h	380;"	d
+kh_resize	khash.h	368;"	d
+kh_size	khash.h	449;"	d
+kh_str_hash_equal	khash.h	329;"	d
+kh_str_hash_func	khash.h	325;"	d
+kh_val	khash.h	423;"	d
+kh_value	khash.h	428;"	d
+khash_t	khash.h	339;"	d
+khint32_t	khash.h	/^typedef unsigned int khint32_t;$/;"	t
+khint32_t	khash.h	/^typedef unsigned long khint32_t;$/;"	t
+khint64_t	khash.h	/^typedef unsigned long khint64_t;$/;"	t
+khint64_t	khash.h	/^typedef unsigned long long khint64_t;$/;"	t
+khint_t	khash.h	/^typedef khint32_t khint_t;$/;"	t
+khiter_t	khash.h	/^typedef khint_t khiter_t;$/;"	t
+kputc	kstring.h	/^static inline int kputc(int c, kstring_t *s)$/;"	f
+kputs	kstring.h	/^static inline int kputs(const char *p, kstring_t *s)$/;"	f
+kroundup32	bamlite.h	62;"	d
+kroundup32	kseq.h	81;"	d
+kroundup32	kstring.h	8;"	d
+ks	bwaseqio.c	/^	kseq_t *ks;$/;"	m	struct:__bwa_seqio_t	file:
+ks_combsort	ksort.h	255;"	d
+ks_eof	kseq.h	40;"	d
+ks_heapadjust	ksort.h	258;"	d
+ks_heapmake	ksort.h	257;"	d
+ks_heapsort	ksort.h	256;"	d
+ks_introsort	ksort.h	254;"	d
+ks_isort_stack_t	ksort.h	/^} ks_isort_stack_t;$/;"	t	typeref:struct:__anon27
+ks_ksmall	ksort.h	259;"	d
+ks_lt_generic	ksort.h	261;"	d
+ks_lt_str	ksort.h	262;"	d
+ks_mergesort	ksort.h	253;"	d
+ks_rewind	kseq.h	41;"	d
+ksprintf	kstring.c	/^int ksprintf(kstring_t *s, const char *fmt, ...)$/;"	f
+ksstr_t	ksort.h	/^typedef const char *ksstr_t;$/;"	t
+kstring_t	kseq.h	/^} kstring_t;$/;"	t	typeref:struct:__kstring_t
+kstring_t	kstring.h	/^} kstring_t;$/;"	t	typeref:struct:__kstring_t
+kv_A	kvec.h	58;"	d
+kv_a	kvec.h	84;"	d
+kv_copy	kvec.h	65;"	d
+kv_destroy	kvec.h	57;"	d
+kv_init	kvec.h	56;"	d
+kv_max	kvec.h	61;"	d
+kv_pop	kvec.h	59;"	d
+kv_push	kvec.h	71;"	d
+kv_pushp	kvec.h	79;"	d
+kv_resize	kvec.h	63;"	d
+kv_roundup32	kvec.h	53;"	d
+kv_size	kvec.h	60;"	d
+kvec_t	kvec.h	55;"	d
+l	bwtaln.h	/^	bwtint_t k, l;$/;"	m	struct:__anon2
+l	bwtgap.h	/^	bwtint_t k, l; \/\/ (k,l) is the SA region of [i,n-1]$/;"	m	struct:__anon19
+l	bwtsw2.h	/^	uint32_t k, l, flag:18, n_seeds:14;$/;"	m	struct:__anon24
+l	bwtsw2_aux.c	/^	int l, tid;$/;"	m	struct:__anon16	file:
+l	kseq.h	/^	size_t l, m;$/;"	m	struct:__kstring_t
+l	kstring.h	/^	size_t l, m;$/;"	m	struct:__kstring_t
+l	simple_dp.c	/^	int l;$/;"	m	struct:__anon28	file:
+l_aux	bamlite.h	/^	int l_aux, data_len, m_data;$/;"	m	struct:__anon15
+l_pac	bntseq.h	/^	int64_t l_pac;$/;"	m	struct:__anon32
+l_qname	bamlite.h	/^	uint32_t bin:16, qual:8, l_qname:8;$/;"	m	struct:__anon14
+l_qseq	bamlite.h	/^	int32_t l_qseq;$/;"	m	struct:__anon14
+l_text	bamlite.h	/^	size_t l_text, n_text;$/;"	m	struct:__anon13
+last_diff_pos	bwtgap.h	/^	int last_diff_pos;$/;"	m	struct:__anon19
+leadingZero	bwt_gen/QSufSort.c	/^static unsigned int leadingZero(const unsigned int input) {$/;"	f	file:
+leadingZero	bwt_gen/bwt_gen.c	/^unsigned int leadingZero(const unsigned int input)$/;"	f
+left	ksort.h	/^	void *left, *right;$/;"	m	struct:__anon27
+len	bntseq.h	/^	int32_t len;$/;"	m	struct:__anon30
+len	bntseq.h	/^	int32_t len;$/;"	m	struct:__anon31
+len	bwtaln.h	/^	uint32_t len:20, strand:1, type:2, dummy:1, extra_flag:8;$/;"	m	struct:__anon4
+len	bwtsw2.h	/^	int len, G, G2;$/;"	m	struct:__anon24
+load_seqs	simple_dp.c	/^static seqs_t *load_seqs(const char *fn)$/;"	f	file:
+low	bwape.c	/^	bwtint_t low, high, high_bayesian;$/;"	m	struct:__anon34	file:
+m	kseq.h	/^	size_t l, m;$/;"	m	struct:__kstring_t
+m	kstring.h	/^	size_t l, m;$/;"	m	struct:__kstring_t
+m_data	bamlite.h	/^	int l_aux, data_len, m_data;$/;"	m	struct:__anon15
+m_entries	bwtgap.h	/^	int n_entries, m_entries;$/;"	m	struct:__anon20
+m_seqs	simple_dp.c	/^	int n_seqs, m_seqs;$/;"	m	struct:__anon29	file:
+main	bwt_gen/bwt_gen.c	/^int main(int argc, char *argv[])$/;"	f
+main	kstring.c	/^int main()$/;"	f
+main	main.c	/^int main(int argc, char *argv[])$/;"	f
+main	stdaln.c	/^int main()$/;"	f
+mapQ	bwtaln.h	/^	uint32_t n_mm:8, n_gapo:8, n_gape:8, mapQ:8;$/;"	m	struct:__anon4
+mask_level	bwtsw2.h	/^	float yita, mask_level, coef;$/;"	m	struct:__anon23
+matrix	stdaln.h	/^	int *matrix;$/;"	m	struct:__anon7
+max	bwt_gen/bwt_gen.h	52;"	d
+max	bwtsw2.h	/^	int n, max;$/;"	m	struct:__anon25
+max	bwtsw2_aux.c	/^	int n, max;$/;"	m	struct:__anon17	file:
+max	bwtsw2_core.c	/^	int n, max;$/;"	m	struct:__anon40	file:
+max_del_occ	bwtaln.h	/^	int indel_end_skip, max_del_occ, max_entries;$/;"	m	struct:__anon5
+max_diff	bwtaln.h	/^	int max_diff, max_gapo, max_gape;$/;"	m	struct:__anon5
+max_entries	bwtaln.h	/^	int indel_end_skip, max_del_occ, max_entries;$/;"	m	struct:__anon5
+max_gape	bwtaln.h	/^	int max_diff, max_gapo, max_gape;$/;"	m	struct:__anon5
+max_gapo	bwtaln.h	/^	int max_diff, max_gapo, max_gape;$/;"	m	struct:__anon5
+max_isize	bwtaln.h	/^	int max_isize, force_isize;$/;"	m	struct:__anon6
+max_l	bwtsw2.h	/^	int max_l;$/;"	m	struct:__anon26
+max_occ	bwtaln.h	/^	int max_occ;$/;"	m	struct:__anon6
+max_seed_diff	bwtaln.h	/^	int max_seed_diff, seed_len;$/;"	m	struct:__anon5
+max_top2	bwtaln.h	/^	int max_top2;$/;"	m	struct:__anon5
+md	bwtaln.h	/^	char *md;$/;"	m	struct:__anon4
+med3	bwt_gen/bwt_gen.h	53;"	d
+mempool_t	bwtsw2_core.c	/^} mempool_t;$/;"	t	typeref:struct:__mempool_t	file:
+merge_entry	bwtsw2_core.c	/^static void merge_entry(const bsw2opt_t * __restrict opt, bsw2entry_t *u, bsw2entry_t *v, bwtsw2_t *b)$/;"	f	file:
+merge_hits	bwtsw2_aux.c	/^static void merge_hits(bwtsw2_t *b[2], int l, int is_reverse)$/;"	f	file:
+min	bwt_gen/bwt_gen.h	51;"	d
+mm	bwtaln.h	/^	uint32_t n_cigar:15, gap:8, mm:8, strand:1;$/;"	m	struct:__anon3
+mode	bwtaln.h	/^	int mode; \/\/ bit 24-31 are the barcode length$/;"	m	struct:__anon5
+mp_alloc	bwtsw2_core.c	/^inline static bsw2entry_p mp_alloc(mempool_t *mp)$/;"	f	file:
+mp_destroy	bwtsw2_core.c	/^static void mp_destroy(struct __mempool_t *mp)$/;"	f	file:
+mp_free	bwtsw2_core.c	/^inline static void mp_free(mempool_t *mp, bsw2entry_p e)$/;"	f	file:
+mpos	bamlite.h	/^	int32_t mpos;$/;"	m	struct:__anon14
+mtid	bamlite.h	/^	int32_t mtid;$/;"	m	struct:__anon14
+multi	bwtaln.h	/^	bwt_multi1_t *multi;$/;"	m	struct:__anon4
+n	bwape.c	/^	int n;$/;"	m	struct:__anon33	file:
+n	bwtsw2.h	/^	int n, max;$/;"	m	struct:__anon25
+n	bwtsw2_aux.c	/^	int n, max;$/;"	m	struct:__anon17	file:
+n	bwtsw2_core.c	/^	int n, max;$/;"	m	struct:__anon40	file:
+n	simple_dp.c	/^	char *n;$/;"	m	struct:__anon28	file:
+n_aln	bwtaln.h	/^	int n_aln;$/;"	m	struct:__anon4
+n_ambs	bntseq.h	/^	int32_t n_ambs;$/;"	m	struct:__anon30
+n_cigar	bamlite.h	/^	uint32_t flag:16, n_cigar:16;$/;"	m	struct:__anon14
+n_cigar	bwtaln.h	/^	int n_cigar;$/;"	m	struct:__anon4
+n_cigar	bwtaln.h	/^	uint32_t n_cigar:15, gap:8, mm:8, strand:1;$/;"	m	struct:__anon3
+n_cigar	bwtsw2.h	/^	int *n_cigar;$/;"	m	struct:__anon25
+n_cigar	stdaln.h	/^	int n_cigar;$/;"	m	struct:__anon9
+n_entries	bwtgap.h	/^	int n_entries, m_entries;$/;"	m	struct:__anon20
+n_entries	bwtgap.h	/^	int n_stacks, best, n_entries;$/;"	m	struct:__anon21
+n_gape	bwtaln.h	/^	uint32_t n_mm:8, n_gapo:8, n_gape:8, a:1;$/;"	m	struct:__anon2
+n_gape	bwtaln.h	/^	uint32_t n_mm:8, n_gapo:8, n_gape:8, mapQ:8;$/;"	m	struct:__anon4
+n_gape	bwtgap.h	/^	u_int32_t n_mm:8, n_gapo:8, n_gape:8, state:2, n_seed_mm:6;$/;"	m	struct:__anon19
+n_gapo	bwtaln.h	/^	uint32_t n_mm:8, n_gapo:8, n_gape:8, a:1;$/;"	m	struct:__anon2
+n_gapo	bwtaln.h	/^	uint32_t n_mm:8, n_gapo:8, n_gape:8, mapQ:8;$/;"	m	struct:__anon4
+n_gapo	bwtgap.h	/^	u_int32_t n_mm:8, n_gapo:8, n_gape:8, state:2, n_seed_mm:6;$/;"	m	struct:__anon19
+n_holes	bntseq.h	/^	int32_t n_holes;$/;"	m	struct:__anon32
+n_mm	bwtaln.h	/^	uint32_t n_mm:8, n_gapo:8, n_gape:8, a:1;$/;"	m	struct:__anon2
+n_mm	bwtaln.h	/^	uint32_t n_mm:8, n_gapo:8, n_gape:8, mapQ:8;$/;"	m	struct:__anon4
+n_mm	bwtgap.h	/^	u_int32_t n_mm:8, n_gapo:8, n_gape:8, state:2, n_seed_mm:6;$/;"	m	struct:__anon19
+n_multi	bwtaln.h	/^	int n_multi, N_multi;$/;"	m	struct:__anon6
+n_multi	bwtaln.h	/^	int n_multi;$/;"	m	struct:__anon4
+n_occ	bwt_lite.h	/^	uint32_t seq_len, bwt_size, n_occ;$/;"	m	struct:__anon22
+n_pending	bwtsw2_core.c	/^	int n_pending;$/;"	m	struct:__anon41	file:
+n_sa	bwt.h	/^	bwtint_t n_sa;$/;"	m	struct:__anon38
+n_seed_mm	bwtgap.h	/^	u_int32_t n_mm:8, n_gapo:8, n_gape:8, state:2, n_seed_mm:6;$/;"	m	struct:__anon19
+n_seeds	bwtsw2.h	/^	uint32_t k, l, flag:18, n_seeds:14;$/;"	m	struct:__anon24
+n_seqs	bntseq.h	/^	int32_t n_seqs;$/;"	m	struct:__anon32
+n_seqs	bwtaln.c	/^	int n_seqs;$/;"	m	struct:__anon12	file:
+n_seqs	simple_dp.c	/^	int n_seqs, m_seqs;$/;"	m	struct:__anon29	file:
+n_stacks	bwtgap.h	/^	int n_stacks, best, n_entries;$/;"	m	struct:__anon21
+n_targets	bamlite.h	/^	int32_t n_targets;$/;"	m	struct:__anon13
+n_text	bamlite.h	/^	size_t l_text, n_text;$/;"	m	struct:__anon13
+n_threads	bwtaln.h	/^	int n_threads;$/;"	m	struct:__anon5
+n_threads	bwtsw2.h	/^	int n_threads, chunk_size;$/;"	m	struct:__anon23
+name	bntseq.h	/^	char *name, *anno;$/;"	m	struct:__anon30
+name	bwtaln.h	/^	char *name;$/;"	m	struct:__anon4
+name	bwtsw2_aux.c	/^	char *name, *seq, *qual, *sam;$/;"	m	struct:__anon16	file:
+nm	bwtaln.h	/^	uint32_t full_len:20, nm:12;$/;"	m	struct:__anon4
+nst_color_space_table	bwtmisc.c	/^const int nst_color_space_table[] = { 4, 0, 0, 1, 0, 2, 3, 4, 0, 3, 2, 4, 1, 4, 4, 4};$/;"	v
+nst_ntnt2cs_table	cs2nt.c	/^static const int nst_ntnt2cs_table[] = { 4, 0, 0, 1, 0, 2, 3, 4, 0, 3, 2, 4, 1, 4, 4, 4 };$/;"	v	file:
+nt_comp_table	bwtsw2_aux.c	/^unsigned char nt_comp_table[256] = {$/;"	v
+numberOfIterationDone	bwt_gen/bwt_gen.h	/^	unsigned int numberOfIterationDone;$/;"	m	struct:BWTInc
+occ	bwt_lite.h	/^	uint32_t *bwt, *occ, *sa, L2[5];$/;"	m	struct:__anon22
+occMajorSizeInWord	bwt_gen/bwt_gen.h	/^	unsigned int occMajorSizeInWord;	\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+occSizeInWord	bwt_gen/bwt_gen.h	/^	unsigned int occSizeInWord;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+occValue	bwt_gen/bwt_gen.h	/^	unsigned int *occValue;				\/\/ Occurrence values stored explicitly$/;"	m	struct:BWT
+occValueMajor	bwt_gen/bwt_gen.h	/^	unsigned int *occValueMajor;		\/\/ Occurrence values stored explicitly$/;"	m	struct:BWT
+offset	bntseq.h	/^	int64_t offset;$/;"	m	struct:__anon30
+offset	bntseq.h	/^	int64_t offset;$/;"	m	struct:__anon31
+opt	bwtaln.c	/^	const gap_opt_t *opt;$/;"	m	struct:__anon12	file:
+out1	stdaln.h	/^	char *out1, *out2; \/* print them, and then you will know *\/$/;"	m	struct:__anon9
+out2	stdaln.h	/^	char *out1, *out2; \/* print them, and then you will know *\/$/;"	m	struct:__anon9
+outm	stdaln.h	/^	char *outm;$/;"	m	struct:__anon9
+pac	bwtsw2_aux.c	/^	uint8_t *pac;$/;"	m	struct:__anon18	file:
+packedShift	bwt_gen/bwt_gen.h	/^	unsigned int *packedShift;$/;"	m	struct:BWTInc
+packedText	bwt_gen/bwt_gen.h	/^	unsigned int *packedText;$/;"	m	struct:BWTInc
+pairing	bwape.c	/^static int pairing(bwa_seq_t *p[2], pe_data_t *d, const pe_opt_t *opt, int s_mm, const isize_info_t *ii)$/;"	f	file:
+path	stdaln.h	/^	path_t *path; \/* for advanced users... :-) *\/$/;"	m	struct:__anon9
+path_len	stdaln.h	/^	int path_len; \/* for advanced users... :-) *\/$/;"	m	struct:__anon9
+path_t	stdaln.h	/^} path_t;$/;"	t	typeref:struct:__anon8
+pe_data_t	bwape.c	/^} pe_data_t;$/;"	t	typeref:struct:__anon35	file:
+pe_opt_t	bwtaln.h	/^} pe_opt_t;$/;"	t	typeref:struct:__anon6
+pj	bwtsw2_core.c	/^	uint32_t pj:2, qlen:30;$/;"	m	struct:__anon39	file:
+pool	bwtsw2_core.c	/^	struct __mempool_t *pool;$/;"	m	struct:__anon41	typeref:struct:__anon41::__mempool_t	file:
+pos	bamlite.h	/^	int32_t pos;$/;"	m	struct:__anon14
+pos	bwtaln.h	/^	bwtint_t sa, pos;$/;"	m	struct:__anon4
+pos	bwtaln.h	/^	uint32_t pos;$/;"	m	struct:__anon3
+pos_5	bwase.c	/^static int64_t pos_5(const bwa_seq_t *p)$/;"	f	file:
+pos_end	bwase.c	/^int64_t pos_end(const bwa_seq_t *p)$/;"	f
+pos_end_multi	bwase.c	/^int64_t pos_end_multi(const bwt_multi1_t *p, int len) \/\/ analogy to pos_end()$/;"	f
+poslist_t	bwape.c	/^} poslist_t;$/;"	t	typeref:struct:__anon33	file:
+ppos	bwtsw2_core.c	/^	int ppos, upos;$/;"	m	struct:__anon39	file:
+primary	bwt.h	/^	bwtint_t primary; \/\/ S^{-1}(0), or the primary index of BWT$/;"	m	struct:__anon38
+primary	bwt_lite.h	/^	uint32_t primary;$/;"	m	struct:__anon22
+print_hits	bwtsw2_aux.c	/^static void print_hits(const bntseq_t *bns, const bsw2opt_t *opt, bsw2seq1_t *ks, bwtsw2_t *b)$/;"	f	file:
+process_seqs	bwtsw2_aux.c	/^static void process_seqs(bsw2seq_t *_seq, const bsw2opt_t *opt, const bntseq_t *bns, uint8_t *pac, bwt_t * const target[2])$/;"	f	file:
+push_array_p	bwtsw2_core.c	/^static inline bsw2cell_t *push_array_p(bsw2entry_t *e)$/;"	f	file:
+q	bwtsw2.h	/^	int a, b, q, r, t, qr, bw;$/;"	m	struct:__anon23
+qbeg	bwtsw2_chain.c	/^	int qbeg, qend;$/;"	m	struct:__anon37	file:
+qend	bwtsw2_chain.c	/^	int qbeg, qend;$/;"	m	struct:__anon37	file:
+qk	bwtsw2_core.c	/^	uint32_t qk, ql;$/;"	m	struct:__anon39	file:
+ql	bwtsw2_core.c	/^	uint32_t qk, ql;$/;"	m	struct:__anon39	file:
+qlen	bwtsw2_core.c	/^	uint32_t pj:2, qlen:30;$/;"	m	struct:__anon39	file:
+qr	bwtsw2.h	/^	int a, b, q, r, t, qr, bw;$/;"	m	struct:__anon23
+qual	bamlite.h	/^	uint32_t bin:16, qual:8, l_qname:8;$/;"	m	struct:__anon14
+qual	bwtaln.h	/^	ubyte_t *seq, *rseq, *qual;$/;"	m	struct:__anon4
+qual	bwtsw2_aux.c	/^	char *name, *seq, *qual, *sam;$/;"	m	struct:__anon16	file:
+r	bwtsw2.h	/^	int a, b, q, r, t, qr, bw;$/;"	m	struct:__anon23
+read1	solid2fastq.pl	/^sub read1 {$/;"	s
+refine_gapped_core	bwase.c	/^static bwa_cigar_t *refine_gapped_core(bwtint_t l_pac, const ubyte_t *pacseq, int len, const ubyte_t *seq, bwtint_t *_pos,$/;"	f	file:
+remove_duplicate	bwtsw2_core.c	/^static inline void remove_duplicate(bsw2entry_t *u, khash_t(64) *hash)$/;"	f	file:
+revseq	simple_dp.c	/^static void revseq(int len, uint8_t *seq)$/;"	f	file:
+right	ksort.h	/^	void *left, *right;$/;"	m	struct:__anon27
+row	stdaln.h	/^	int row;$/;"	m	struct:__anon7
+rseq	bwtaln.h	/^	ubyte_t *seq, *rseq, *qual;$/;"	m	struct:__anon4
+s	kseq.h	/^	char *s;$/;"	m	struct:__kstring_t
+s	kstring.h	/^	char *s;$/;"	m	struct:__kstring_t
+s	simple_dp.c	/^	unsigned char *s;$/;"	m	struct:__anon28	file:
+s_gape	bwtaln.h	/^	int s_mm, s_gapo, s_gape;$/;"	m	struct:__anon5
+s_gapo	bwtaln.h	/^	int s_mm, s_gapo, s_gape;$/;"	m	struct:__anon5
+s_mm	bwtaln.h	/^	int s_mm, s_gapo, s_gape;$/;"	m	struct:__anon5
+sa	bwt.h	/^	bwtint_t *sa;$/;"	m	struct:__anon38
+sa	bwt_lite.h	/^	uint32_t *bwt, *occ, *sa, L2[5];$/;"	m	struct:__anon22
+sa	bwtaln.h	/^	bwtint_t sa, pos;$/;"	m	struct:__anon4
+saIndexRange	bwt_gen/bwt_gen.h	/^	SaIndexRange *saIndexRange;			\/\/ SA index range$/;"	m	struct:BWT
+saIndexRangeNumOfChar	bwt_gen/bwt_gen.h	/^	int saIndexRangeNumOfChar;			\/\/ Number of characters indexed in SA index range$/;"	m	struct:BWT
+saIndexRangeSize	bwt_gen/bwt_gen.h	/^	unsigned int saIndexRangeSize;		\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+saInterval	bwt_gen/bwt_gen.h	/^	unsigned int saInterval;			\/\/ interval between two SA values stored explicitly$/;"	m	struct:BWT
+saValue	bwt_gen/bwt_gen.h	/^	unsigned int *saValue;				\/\/ SA values stored explicitly$/;"	m	struct:BWT
+saValueOnBoundary	bwt_gen/bwt_gen.h	/^	unsigned int *saValueOnBoundary;	\/\/ Pre-calculated frequently referred data$/;"	m	struct:BWT
+saValueSize	bwt_gen/bwt_gen.h	/^	unsigned int saValueSize;			\/\/ Temporary variable to hold the memory allocated$/;"	m	struct:BWT
+sa_intv	bwt.h	/^	int sa_intv;$/;"	m	struct:__anon38
+sais_main	is.c	/^static int sais_main(const unsigned char *T, int *SA, int fs, int n, int k, int cs)$/;"	f	file:
+sam	bwtsw2_aux.c	/^	char *name, *seq, *qual, *sam;$/;"	m	struct:__anon16	file:
+save_hits	bwtsw2_core.c	/^static void save_hits(const bwtl_t *bwt, int thres, bsw2hit_t *hits, bsw2entry_t *u)$/;"	f	file:
+save_narrow_hits	bwtsw2_core.c	/^static void save_narrow_hits(const bwtl_t *bwtl, bsw2entry_t *u, bwtsw2_t *b1, int t, int IS)$/;"	f	file:
+score	bwtaln.h	/^	int score;$/;"	m	struct:__anon2
+score	bwtaln.h	/^	int score;$/;"	m	struct:__anon4
+score	stdaln.h	/^	int score, subo; \/* score *\/$/;"	m	struct:__anon9
+seQ	bwtaln.h	/^	uint64_t c1:28, c2:28, seQ:8; \/\/ number of top1 and top2 hits; single-end mapQ$/;"	m	struct:__anon4
+seed	bntseq.h	/^	uint32_t seed;$/;"	m	struct:__anon32
+seed_len	bwtaln.h	/^	int max_seed_diff, seed_len;$/;"	m	struct:__anon5
+seq	bwtaln.h	/^	ubyte_t *seq, *rseq, *qual;$/;"	m	struct:__anon4
+seq	bwtsw2_aux.c	/^	bsw2seq1_t *seq;$/;"	m	struct:__anon17	file:
+seq	bwtsw2_aux.c	/^	char *name, *seq, *qual, *sam;$/;"	m	struct:__anon16	file:
+seq1_t	simple_dp.c	/^} seq1_t;$/;"	t	typeref:struct:__anon28	file:
+seq_len	bwt.h	/^	bwtint_t seq_len; \/\/ sequence length$/;"	m	struct:__anon38
+seq_len	bwt_lite.h	/^	uint32_t seq_len, bwt_size, n_occ;$/;"	m	struct:__anon22
+seq_reverse	bwaseqio.c	/^void seq_reverse(int len, ubyte_t *seq, int is_comp)$/;"	f
+seqs	bwtaln.c	/^	bwa_seq_t *seqs;$/;"	m	struct:__anon12	file:
+seqs	simple_dp.c	/^	seq1_t *seqs;$/;"	m	struct:__anon29	file:
+seqs_t	simple_dp.c	/^} seqs_t;$/;"	t	typeref:struct:__anon29	file:
+set_D	stdaln.c	298;"	d	file:
+set_I	stdaln.c	276;"	d	file:
+set_M	stdaln.c	260;"	d	file:
+set_end_D	stdaln.c	308;"	d	file:
+set_end_I	stdaln.c	286;"	d	file:
+stack	bwtgap.h	/^	gap_entry_t *stack;$/;"	m	struct:__anon20
+stack	bwtsw2.h	/^	void *stack;$/;"	m	struct:__anon26
+stack_destroy	bwtsw2_core.c	/^static void stack_destroy(bsw2stack_t *s) { mp_destroy(s->pool); kv_destroy(s->stack0); kv_destroy(s->pending); free(s); }$/;"	f	file:
+stack_isempty	bwtsw2_core.c	48;"	d	file:
+stack_pop	bwtsw2_core.c	/^inline static bsw2entry_p stack_pop(bsw2stack_t *s)$/;"	f	file:
+stack_push0	bwtsw2_core.c	/^inline static void stack_push0(bsw2stack_t *s, bsw2entry_p e) { kv_push(bsw2entry_p, s->stack0, e); }$/;"	f	file:
+stacks	bwtgap.h	/^	gap_stack1_t *stacks;$/;"	m	struct:__anon21
+start1	stdaln.h	/^	int start1, end1; \/* start and end of the first sequence, coordinations are 1-based *\/$/;"	m	struct:__anon9
+start2	stdaln.h	/^	int start2, end2; \/* start and end of the second sequence, coordinations are 1-based *\/$/;"	m	struct:__anon9
+startSaIndex	bwt_gen/bwt_gen.h	/^	unsigned int startSaIndex;$/;"	m	struct:SaIndexRange
+state	bwtgap.h	/^	u_int32_t n_mm:8, n_gapo:8, n_gape:8, state:2, n_seed_mm:6;$/;"	m	struct:__anon19
+std	bwape.c	/^	double avg, std, ap_prior;$/;"	m	struct:__anon34	file:
+strand	bwtaln.h	/^	uint32_t len:20, strand:1, type:2, dummy:1, extra_flag:8;$/;"	m	struct:__anon4
+strand	bwtaln.h	/^	uint32_t n_cigar:15, gap:8, mm:8, strand:1;$/;"	m	struct:__anon3
+subo	stdaln.h	/^	int score, subo; \/* score *\/$/;"	m	struct:__anon9
+swap	bwt_gen/bwt_gen.h	54;"	d
+swap_endian_data	bamlite.c	/^static void swap_endian_data(const bam1_core_t *c, int data_len, uint8_t *data)$/;"	f	file:
+t	bwtsw2.h	/^	int a, b, q, r, t, qr, bw;$/;"	m	struct:__anon23
+t_seeds	bwtsw2.h	/^	int z, is, t_seeds, hard_clip;$/;"	m	struct:__anon23
+target	bwtsw2_aux.c	/^	bwt_t *target[2];$/;"	m	struct:__anon18	file:
+targetNBit	bwt_gen/bwt_gen.h	/^	float targetNBit;$/;"	m	struct:BWTInc
+targetTextLength	bwt_gen/bwt_gen.h	/^	unsigned int targetTextLength;$/;"	m	struct:BWTInc
+target_len	bamlite.h	/^	uint32_t *target_len;$/;"	m	struct:__anon13
+target_name	bamlite.h	/^	char **target_name;$/;"	m	struct:__anon13
+tbeg	bwtsw2_chain.c	/^	uint32_t tbeg, tend;$/;"	m	struct:__anon37	file:
+tend	bwtsw2_chain.c	/^	uint32_t tbeg, tend;$/;"	m	struct:__anon37	file:
+text	bamlite.h	/^	char *text;$/;"	m	struct:__anon13
+textBuffer	bwt_gen/bwt_gen.h	/^	unsigned char *textBuffer;$/;"	m	struct:BWTInc
+textLength	bwt_gen/bwt_gen.h	/^	unsigned int textLength;			\/\/ length of the text$/;"	m	struct:BWT
+thread_aux_t	bwtaln.c	/^} thread_aux_t;$/;"	t	typeref:struct:__anon12	file:
+thread_aux_t	bwtsw2_aux.c	/^} thread_aux_t;$/;"	t	typeref:struct:__anon18	file:
+tid	bamlite.h	/^	int32_t tid;$/;"	m	struct:__anon14
+tid	bwtaln.c	/^	int tid;$/;"	m	struct:__anon12	file:
+tid	bwtaln.h	/^	int tid;$/;"	m	struct:__anon4
+tid	bwtsw2_aux.c	/^	int l, tid;$/;"	m	struct:__anon16	file:
+tid	bwtsw2_aux.c	/^	int tid;$/;"	m	struct:__anon18	file:
+time_elapse	bwtsw2_core.c	/^static inline double time_elapse(const struct rusage *curr, const struct rusage *last)$/;"	f	file:
+tk	bwtsw2_core.c	/^	uint32_t tk, tl;$/;"	m	struct:__anon40	file:
+tl	bwtsw2_core.c	/^	uint32_t tk, tl;$/;"	m	struct:__anon40	file:
+tlen	bwtsw2_core.c	/^	int tlen;$/;"	m	struct:__anon39	file:
+trim_qual	bwtaln.h	/^	int trim_qual;$/;"	m	struct:__anon5
+truncateLeft	bwt_gen/bwt_gen.h	55;"	d
+truncateRight	bwt_gen/bwt_gen.h	56;"	d
+type	bwtaln.h	/^	int type, is_sw, is_preload;$/;"	m	struct:__anon6
+type	bwtaln.h	/^	uint32_t len:20, strand:1, type:2, dummy:1, extra_flag:8;$/;"	m	struct:__anon4
+ubyte_t	bntseq.h	/^typedef uint8_t ubyte_t;$/;"	t
+ubyte_t	bwt.h	/^typedef unsigned char ubyte_t;$/;"	t
+ubyte_t	is.c	/^typedef unsigned char ubyte_t;$/;"	t	file:
+upos	bwtsw2_core.c	/^	int ppos, upos;$/;"	m	struct:__anon39	file:
+usage	main.c	/^static int usage()$/;"	f	file:
+w	bwtaln.h	/^	bwtint_t w;$/;"	m	struct:__anon1
+which	bwaseqio.c	/^	int is_bam, which; \/\/ 1st bit: read1, 2nd bit: read2, 3rd: SE$/;"	m	struct:__bwa_seqio_t	file:
+worker	bwtaln.c	/^static void *worker(void *data)$/;"	f	file:
+worker	bwtsw2_aux.c	/^static void *worker(void *data)$/;"	f	file:
+workingMemory	bwt_gen/bwt_gen.h	/^	unsigned int *workingMemory;$/;"	m	struct:BWTInc
+xassert	utils.h	47;"	d
+xopen	utils.h	44;"	d
+xreopen	utils.h	45;"	d
+xzopen	utils.h	46;"	d
+yita	bwtsw2.h	/^	float yita, mask_level, coef;$/;"	m	struct:__anon23
+z	bwtsw2.h	/^	int z, is, t_seeds, hard_clip;$/;"	m	struct:__anon23
