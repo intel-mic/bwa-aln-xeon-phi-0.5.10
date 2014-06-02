@@ -10,12 +10,19 @@ II. Introduction
 BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack(ALN), BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. 
 This project bwa-aln-xeon-phi-0.5.10 optimizes bwa-0.5.10 ALN module performance on both Xeon and Xeon Phi platform, and supports symmetric running model on hybrid Xeon and Xeon Phi nodes.
 Optimization methods include:
+
 (1) Replace Pthreads with OpenMP for better load balance. 
+
 (2) Overlap File IO and computation to improve thread utilization. 
+
 (3) Use Intel TBB memory allocator for efficient memory management.
+
 (4) Vectorization of performance critical loop. 
+
 (5) Data prefetch Intrinsics to reduce memory latency. 
+
 (6) Add task parallelism besides OpenMP to further improve load balance.
+
 Original bwa-0.5.10 package can be downloading from:
 http://sourceforge.net/projects/bio-bwa/files/
 
