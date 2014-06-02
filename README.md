@@ -40,6 +40,8 @@ Add:
 
 	/home          172.31.0.0/16(rw,insecure,no_root_squash,async)
 
+Run:
+	
 	> exportfs -au
 
 	> exportfs -ar
@@ -47,7 +49,6 @@ Add:
 	> showmount -e
 
 	Export list for Host:
-
 	/home        172.31.0.0/16
 
 Mout /home directory to Intel Xeon Phi:
