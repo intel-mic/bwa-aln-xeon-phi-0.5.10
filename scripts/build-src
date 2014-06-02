@@ -3,8 +3,8 @@ source aln-head
 cd ${src_directory}
 make clean
 make
-cp bwa bwa0
+mv bwa bwa0
 make clean -f Makefile.mic
 make -f Makefile.mic
-cp bwa0 bwa
+mv bwa0 bwa
 cd ../scripts

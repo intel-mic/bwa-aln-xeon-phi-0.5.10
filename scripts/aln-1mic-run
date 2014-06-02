@@ -18,8 +18,6 @@ cat ${host2_output_file1}_0.sai >> $res_file1
 cat ${host2_output_file1}_1.sai >> $res_file1
 cat ${host2_output_file1}_2.sai >> $res_file1
 
-
-
 #file2
 #host2
 cat ${host2_output_file2}_0.sai >> $res_file2

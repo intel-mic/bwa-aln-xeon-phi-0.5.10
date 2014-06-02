@@ -4,13 +4,13 @@ host1_num_tasks=2
 host1_num_threads=16
 host1_ratio=10
 
-host2=crt45-mic0
+host2=${host1}-mic0
 host2_exe=bwa_mic
 host2_num_tasks=3
 host2_num_threads=80
 host2_ratio=7
 
-host3=crt45-mic1
+host3=${host1}-mic1
 host3_exe=bwa_mic
 host3_num_tasks=3
 host3_num_threads=80
@@ -30,8 +30,8 @@ res_file1=${data_directory}/aln_1.sai
 res_file2=${data_directory}/aln_2.sai
 
 # for bwa sampe output and picard output
-sampe_output=output.sam
-picard_output=sorted.sam
+sampe_output=${data_directory}/output.sam
+picard_output=${data_directory}/sorted.sam
 
 #host1
 host1_input_file1=${file1}_${host1}
