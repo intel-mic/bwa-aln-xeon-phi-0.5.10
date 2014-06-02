@@ -23,7 +23,7 @@ Optimization methods include:
 
 (6) Add task parallelism besides OpenMP to further improve load balance.
 
-Original bwa-0.5.10 package can be downloading from:
+Original bwa-0.5.10 package can be downloaded from:
 http://sourceforge.net/projects/bio-bwa/files/
 
 III. Preliminaries
