@@ -12,8 +12,8 @@ OBJS=		utils.o bwt.o bwtio.o bwtaln.o bwtgap.o is.o \
 			bwtsw2_chain.o bamlite.o
 PROG=		bwa_mic
 #INCLUDES=	
-INCLUDES=	-I../zlib/include
-LIBS=		-lm -L../zlib/lib -lz -lpthread -Lbwt_gen -lbwtgen
+INCLUDES=	-I/home/zlib/include
+LIBS=		-lm -L/home/zlib/lib -lz -lpthread -Lbwt_gen -lbwtgen
 #LIBS=		-lm -lz -lpthread -Lbwt_gen -lbwtgen
 SUBDIRS=	. bwt_gen
 

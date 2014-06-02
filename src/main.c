@@ -3,8 +3,6 @@
 #include "main.h"
 #include "utils.h"
 
-#define USE_MPI
-
 #ifdef USE_MPI
 #include "mpi.h"
 int mpi_id, mpi_numprocs, mpi_name_len;

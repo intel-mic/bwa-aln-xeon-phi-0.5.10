@@ -30,13 +30,6 @@
 
 
 
-
-#define MAX_TASKS 10	// Task parallelism
-#define USE_MPI			// Use mpi
-
-
-
-
 typedef struct {
 	bwtint_t w;
 	int bid;
@@ -136,11 +129,16 @@ extern "C" {
 	gap_opt_t *gap_init_opt();
 	void bwa_aln_core(const char *prefix, const char *fn_fa, const char *res_aln, const gap_opt_t *opt, int num_tasks, int task_id);
 
-	bwa_seqio_t *bwa_seq_open(const char *fn, int num_tasks, int task_id);
+	bwa_seqio_t *bwa_seq_open(const char *fn);
+	bwa_seqio_t *bwa_seq_open_1(const char *fn, int num_tasks, int task_id);
+	
 	bwa_seqio_t *bwa_bam_open(const char *fn, int which);
 	void bwa_seq_close(bwa_seqio_t *bs);
 	void seq_reverse(int len, ubyte_t *seq, int is_comp);
-	bwa_seq_t *bwa_read_seq(bwa_seqio_t *seq, int n_needed, int *n, int mode, int trim_qual, int num_tasks, int task_id);
+	
+	bwa_seq_t *bwa_read_seq(bwa_seqio_t *seq, int n_needed, int *n, int mode, int trim_qual);
+	bwa_seq_t *bwa_read_seq_1(bwa_seqio_t *seq, int n_needed, int *n, int mode, int trim_qual, int num_tasks, int task_id);
+	
 	void bwa_free_read_seq(int n_seqs, bwa_seq_t *seqs);
 
 	int bwa_cal_maxdiff(int l, double err, double thres);

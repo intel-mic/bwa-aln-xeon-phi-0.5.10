@@ -15,29 +15,25 @@
 #include <pthread.h>
 #include <semaphore.h>
 
-bwt_t *bwt[2];			// For task parallelism, shared between tasks
-
 // Optimizations
 #ifndef HAVE_PTHREAD
 #define OMP_OPT			// OpenMP multithread instead of pthread
 #define MULTIBUFS_OPT	// Use multiple buffers to pipeline read and calculation
 #endif
 
-// Signals of finishing reading and calculation for each task
-sem_t finish_read[MAX_TASKS], finish_cal[MAX_TASKS];	
-
 #ifdef OMP_OPT
 #include "omp.h"		// Include openmp header file
 #define OMP_GRAIN 100	// Dynamic scheduling grain size of OpenMP multithread
 #endif
 
-double t_cal[MAX_TASKS] = {0};	// Calculation fime for each task
-
 #ifdef MULTIBUFS_OPT
-#define NUM_BUFFERS 10	// Number of buffers
-#define START_INDEX 1	// Start calculation index after reading
-static int tot_seqs[MAX_TASKS] = {0};
-sem_t finish_read_array[MAX_TASKS][NUM_BUFFERS], finish_cal_array[MAX_TASKS][NUM_BUFFERS];
+#define NUM_BUFFERS 10					// Number of buffers
+#define START_INDEX 1					// Start calculation index after reading
+bwt_t *bwt[2];							// For task parallelism, shared between tasks
+double t_cal[MAX_TASKS] = {0};			// Calculation fime for each task
+static int tot_seqs[MAX_TASKS] = {0};	// Count total seqs for each task
+sem_t finish_read[MAX_TASKS], finish_cal[MAX_TASKS];	// Signals of finishing reading and calculation for each task
+sem_t finish_read_array[MAX_TASKS][NUM_BUFFERS], finish_cal_array[MAX_TASKS][NUM_BUFFERS];// Signals for each buffer of each task
 #endif	// MULTIBUFS_OPT
 
 #ifdef USE_MPI
@@ -317,7 +313,8 @@ static void *thread_calculate(void *data)
 
 #endif	// MULTIBUFS_OPT
 
-bwa_seqio_t *bwa_open_reads(int mode, const char *fn_fa, int num_tasks, int task_id)
+// Ori
+bwa_seqio_t *bwa_open_reads(int mode, const char *fn_fa)
 {
 	bwa_seqio_t *ks;
 	if (mode & BWA_MODE_BAM) { // open BAM
@@ -327,7 +324,22 @@ bwa_seqio_t *bwa_open_reads(int mode, const char *fn_fa, int num_tasks, int task
 		if (mode & BWA_MODE_BAM_READ2) which |= 2;
 		if (which == 0) which = 7; // then read all reads
 		ks = bwa_bam_open(fn_fa, which);
-	} else ks = bwa_seq_open(fn_fa, num_tasks, task_id);
+	} else ks = bwa_seq_open(fn_fa);
+	return ks;
+}
+
+// Opt
+bwa_seqio_t *bwa_open_reads_1(int mode, const char *fn_fa, int num_tasks, int task_id)
+{
+	bwa_seqio_t *ks;
+	if (mode & BWA_MODE_BAM) { // open BAM
+		int which = 0;
+		if (mode & BWA_MODE_BAM_SE) which |= 4;
+		if (mode & BWA_MODE_BAM_READ1) which |= 1;
+		if (mode & BWA_MODE_BAM_READ2) which |= 2;
+		if (which == 0) which = 7; // then read all reads
+		ks = bwa_bam_open(fn_fa, which);
+	} else ks = bwa_seq_open_1(fn_fa, num_tasks, task_id);
 	return ks;
 }
 
@@ -360,7 +372,7 @@ void bwa_aln_core(const char *prefix, const char *fn_fa, const char *res_aln, co
 	}
 	
 	// Initialization input file
-	ks = bwa_open_reads(opt->mode, fn_fa, num_tasks, task_id);	
+	ks = bwa_open_reads_1(opt->mode, fn_fa, num_tasks, task_id);	
 
 	// Initialization Output file
 	FILE* output_file;
@@ -425,13 +437,13 @@ void bwa_aln_core(const char *prefix, const char *fn_fa, const char *res_aln, co
 		// For number of buffers
 		for(i = 0; i < NUM_BUFFERS; ++i){
 
-			if(first_flag_array != 0){						
+			// First turn(one turn for all buffers) needn't to wait
+			if(first_flag_array != 0){					
 				sem_wait(&finish_cal_array[task_id][i]);	// wait sigal: finish calculation for each buffer
-				first_flag_array = 1;						// first time needn't to wait
 			}
 
 			// Read data to buffers
-			seqs_array[i] = bwa_read_seq(ks, 0x40000, &n_seqs_array[i], opt->mode, opt->trim_qual, num_tasks, task_id);
+			seqs_array[i] = bwa_read_seq_1(ks, 0x40000, &n_seqs_array[i], opt->mode, opt->trim_qual, num_tasks, task_id);
 
 			// Finish reading all data
 			if(seqs_array[i] == 0) {
@@ -449,6 +461,8 @@ void bwa_aln_core(const char *prefix, const char *fn_fa, const char *res_aln, co
 			sem_post(&finish_read_array[task_id][i]);		// send signal: finish reading data for each buffer
 		}
 		
+		// Finished first turn(one turn for all buffers)
+		first_flag_array = 1;
 	}// end while
 
 	// Wait for all calculation to finish

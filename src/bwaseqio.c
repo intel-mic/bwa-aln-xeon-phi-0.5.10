@@ -4,9 +4,7 @@
 #include "utils.h"
 #include "bamlite.h"
 
-#define READ_OPT	// Use FILE instead of gzFile
-
-#ifdef USE_MPI
+//#define READ_OPT	// Use FILE instead of gzFile
 
 // For MPI
 #include "mpi.h"
@@ -223,24 +221,19 @@ bwa_seqio_t *bwa_bam_open(const char *fn, int which)
 	return bs;
 }
 
-void search_right_position(FILE* fp)
+// Ori
+bwa_seqio_t *bwa_seq_open(const char *fn)
 {
-	// file must begin as @
-	char str[512];
-	while(fgets(str, 512, fp)){	// get one line
-		if(str[0] == '@'){ 
-			break;
-		}
-	}
-
-	// back to the -str_len position
-	int str_len =  strlen(str);
-	fseek(fp, -str_len, SEEK_CUR);
+	gzFile fp;
+	bwa_seqio_t *bs;
+	bs = (bwa_seqio_t*)calloc(1, sizeof(bwa_seqio_t));
+	fp = xzopen(fn, "r");
+	bs->ks = kseq_init(fp);
+	return bs;
 }
 
-
-
-bwa_seqio_t *bwa_seq_open(const char *fn, int num_tasks, int task_id)
+// Opt
+bwa_seqio_t *bwa_seq_open_1(const char *fn, int num_tasks, int task_id)
 {
 #ifndef READ_OPT
 	gzFile fp;
@@ -250,7 +243,9 @@ bwa_seqio_t *bwa_seq_open(const char *fn, int num_tasks, int task_id)
 	bwa_seqio_t *bs;
 	bs = (bwa_seqio_t*)calloc(1, sizeof(bwa_seqio_t));
 #ifndef READ_OPT
-	fp = xzopen(fn, "r");
+	char filename[256];
+	sprintf(filename, "%s_%d", fn, task_id);	// Input file name for each task: fn + task_id
+	fp = xzopen(filename, "r");
 #else
 	char filename[256];
 	sprintf(filename, "%s_%d", fn, task_id);	// Input file name for each task: fn + task_id
@@ -260,14 +255,14 @@ bwa_seqio_t *bwa_seq_open(const char *fn, int num_tasks, int task_id)
 #ifdef USE_MPI
 
 	// Calclation file length
-	fseek(fp, 0, SEEK_END);
-	unsigned int total_file_len = ftell(fp);	
+	//fseek(fp, 0, SEEK_END);
+	//unsigned int total_file_len = ftell(fp);	
 	
 	// Back to the begin of the file
-	fseek(fp, 0, SEEK_SET);
+	//fseek(fp, 0, SEEK_SET);
 
 	// File length of each task
-	file_end[task_id] = total_file_len;
+	//file_end[task_id] = total_file_len;
 
 #pragma omp barrier
 
@@ -276,6 +271,8 @@ bwa_seqio_t *bwa_seq_open(const char *fn, int num_tasks, int task_id)
 	bs->ks = kseq_init(fp);
 	return bs;
 }
+
+
 
 void bwa_seq_close(bwa_seqio_t *bs)
 {
@@ -384,7 +381,81 @@ static bwa_seq_t *bwa_read_bam(bwa_seqio_t *bs, int n_needed, int *n, int is_com
 
 #define BARCODE_LOW_QUAL 13
 
-bwa_seq_t *bwa_read_seq(bwa_seqio_t *bs, int n_needed, int *n, int mode, int trim_qual, int num_tasks, int task_id)
+// Ori
+bwa_seq_t *bwa_read_seq(bwa_seqio_t *bs, int n_needed, int *n, int mode, int trim_qual)
+{
+	bwa_seq_t *seqs, *p;
+	kseq_t *seq = bs->ks;
+	int n_seqs, l, i, is_comp = mode&BWA_MODE_COMPREAD, is_64 = mode&BWA_MODE_IL13, l_bc = mode>>24;
+	long n_trimmed = 0, n_tot = 0;
+
+	if (l_bc > BWA_MAX_BCLEN) {
+		fprintf(stderr, "[%s] the maximum barcode length is %d.\n", __func__, BWA_MAX_BCLEN);
+		return 0;
+	}
+	if (bs->is_bam) return bwa_read_bam(bs, n_needed, n, is_comp, trim_qual); // l_bc has no effect for BAM input
+	n_seqs = 0;
+	seqs = (bwa_seq_t*)calloc(n_needed, sizeof(bwa_seq_t));
+	while ((l = kseq_read(seq)) >= 0) {
+		if ((mode & BWA_MODE_CFY) && (seq->comment.l != 0)) {
+			// skip reads that are marked to be filtered by Casava
+			char *s = index(seq->comment.s, ':');
+			if (s && *(++s) == 'Y') {
+				continue;
+			}
+		}
+		if (is_64 && seq->qual.l)
+			for (i = 0; i < seq->qual.l; ++i) seq->qual.s[i] -= 31;
+		if (seq->seq.l <= l_bc) continue; // sequence length equals or smaller than the barcode length
+		p = &seqs[n_seqs++];
+		if (l_bc) { // then trim barcode
+			for (i = 0; i < l_bc; ++i)
+				p->bc[i] = (seq->qual.l && seq->qual.s[i]-33 < BARCODE_LOW_QUAL)? tolower(seq->seq.s[i]) : toupper(seq->seq.s[i]);
+			p->bc[i] = 0;
+			for (; i < seq->seq.l; ++i)
+				seq->seq.s[i - l_bc] = seq->seq.s[i];
+			seq->seq.l -= l_bc; seq->seq.s[seq->seq.l] = 0;
+			if (seq->qual.l) {
+				for (i = l_bc; i < seq->qual.l; ++i)
+					seq->qual.s[i - l_bc] = seq->qual.s[i];
+				seq->qual.l -= l_bc; seq->qual.s[seq->qual.l] = 0;
+			}
+			l = seq->seq.l;
+		} else p->bc[0] = 0;
+		p->tid = -1; // no assigned to a thread
+		p->qual = 0;
+		p->full_len = p->clip_len = p->len = l;
+		n_tot += p->full_len;
+		p->seq = (ubyte_t*)calloc(p->len, 1);
+		for (i = 0; i != p->full_len; ++i)
+			p->seq[i] = nst_nt4_table[(int)seq->seq.s[i]];
+		if (seq->qual.l) { // copy quality
+			p->qual = (ubyte_t*)strdup((char*)seq->qual.s);
+			if (trim_qual >= 1) n_trimmed += bwa_trim_read(trim_qual, p);
+		}
+		p->rseq = (ubyte_t*)calloc(p->full_len, 1);
+		memcpy(p->rseq, p->seq, p->len);
+		seq_reverse(p->len, p->seq, 0); // *IMPORTANT*: will be reversed back in bwa_refine_gapped()
+		seq_reverse(p->len, p->rseq, is_comp);
+		p->name = strdup((const char*)seq->name.s);
+		{ // trim /[12]$
+			int t = strlen(p->name);
+			if (t > 2 && p->name[t-2] == '/' && (p->name[t-1] == '1' || p->name[t-1] == '2')) p->name[t-2] = '\0';
+		}
+		if (n_seqs == n_needed) break;
+	}
+	*n = n_seqs;
+	if (n_seqs && trim_qual >= 1)
+		fprintf(stderr, "[bwa_read_seq] %.1f%% bases are trimmed.\n", 100.0f * n_trimmed/n_tot);
+	if (n_seqs == 0) {
+		free(seqs);
+		return 0;
+	}
+	return seqs;
+}
+
+// Opt
+bwa_seq_t *bwa_read_seq_1(bwa_seqio_t *bs, int n_needed, int *n, int mode, int trim_qual, int num_tasks, int task_id)
 {
 	bwa_seq_t *seqs, *p;
 	kseq_t *seq = bs->ks;
@@ -393,12 +464,12 @@ bwa_seq_t *bwa_read_seq(bwa_seqio_t *bs, int n_needed, int *n, int mode, int tri
 
 #ifdef USE_MPI
 
-	FILE* fp = seq->f->f;
+	//FILE* fp = seq->f->f;
 	
 	// If current file position reached file_end, return 0: finish reading
-	unsigned int current = ftell(fp);				
-	fprintf(stderr, "I am on %s, task_id = %d, current file position is %u of %u\n", mpi_name, task_id, current, file_end[task_id]);
-	if(ftell(fp) >= file_end[task_id]) return 0;
+	//unsigned int current = ftell(fp);				
+	//fprintf(stderr, "I am on %s, task_id = %d, current file position is %u of %u\n", mpi_name, task_id, current, file_end[task_id]);
+	//if(ftell(fp) >= file_end[task_id]) return 0;
 
 #endif
 	
