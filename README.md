@@ -143,13 +143,13 @@ Modify configuration:
 	host1_num_threads=16		# number of threads for each task
 	host1_ratio=10				# input data file ratio for host1
 
-	host2=${crt45}-mic0			# host2: mic0 of host1
+	host2=${host1}-mic0			# host2: mic0 of host1
 	host2_exe=bwa_mic			# executable file name on host2
 	host2_num_tasks=3			# number of tasks on host2
 	host2_num_threads=80		# number of threads for each task
 	host2_ratio=5				# input data file ratio for mic0
 
-	host3=${crt45}-mic1			# host3: mic1 of host1
+	host3=${host1}-mic1			# host3: mic1 of host1
 	host3_exe=bwa_mic			# executable file name on host3
 	host3_num_tasks=3			# number of tasks on host3
 	host3_num_threads=80		# number of threads for each task
