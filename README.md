@@ -31,66 +31,111 @@ III. Preliminaries
 1. Install Intel® MPI Library 4.1 and Intel® C++ Compiler 13.3 or higher on your host system.
 2. Download bwa-aln-xeon-phi-0.5.10 from https://github.com/intel-mic/bwa-aln-xeon-phi-0.5.10
 3. Install NFS and start NFS service, export /home directory and mount it to Intel Xeon Phi:
+
 	> service nfs start
+
 	> vi /etc/exports
+
 Add:
+
 	/home          172.31.0.0/16(rw,insecure,no_root_squash,async)
+
 	> exportfs -au
+
 	> exportfs -ar
+
 	> showmount -e
+
 	Export list for Host:
+
 	/home        172.31.0.0/16
+
 Mout /home directory to Intel Xeon Phi:
+
 	> micctrl --addnfs=/home --dir=/home
 
 4．Download zlib-1.2.8 from http://www.zlib.net/ and compile for Xeon Phi:
+
 	> export CC=icc
+
 	> export CFLAGS=-mmic
+
 	> ./configure --prefix=/home/zlib
+
 	> make
+
 	icc -mmic  -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -c -o example.o test/example.c
+
 	……
+
 	> make install
+
 zlib that support Xeon Phi will be installed at /home/zlib
+
 Then upload dynamic libraries to Xeon Phi:
+
 	> scp /home/zlib/lib/*.so* mic0:/lib64
 
 IV. Compiling bwa-aln-xeon-phi
 ============================
 1.	Set up the Intel MPI and Intel Compiler environments:
+
 	> source /opt/intel/impi/<version>/bin64/mpivars.sh
+
 	> source /opt/intel/compserxe/bin/compilervars.sh intel64
+
 	> vi ~/.bashrc
+
 Add:
+
 	export I_MPI_MIC=enable
+
 	export I_MPI_MIC_POSTFIX=_mic
+
 	export I_MPI_FABRICS=shm:tcp
+
 	export I_MPI_PIN=enable
+
 Run ~/.bashrc
+
 Upload Intel MPI and Intel Compiler Libraries to Intel Xeon Phi:
+
 	> scp /opt/intel/impi/<version>/mic/bin/mpiexec      mic0:/bin/
+
 	> scp /opt/intel/impi/<version>/mic/bin/pmi_proxy    mic0:/bin/
+
 	> scp /opt/intel/impi/<version>/mic/lib/lib*.so*     mic0:/lib64/
+
 	> scp /opt/intel/composer_xe_<version>/compiler/lib/mic/*.so* mic0:/lib64
+
 	> scp /opt/intel/composer_xe_<version>/tbb/lib/mic/*.so* mic0:/lib64
+
 	> scp /opt/intel/composer_xe_<version>/mkl/lib/mic/lib*.so  mic0:/lib64
 	
 2.	Unpack the source code to any directory of /home and build the executables for Intel Xeon and Intel Xeon processor
+
 	> tar –xzvf bwa-aln-xeon-phi-0.5.10.tar.gz
+
 	> cd bwa-aln-xeon-phi-0.5.10/scripts
+
 	> ./build-src
+
 It will compile both executable binaries for Intel Xeon and Intel Xeon Phi.
 
 V. Build bwa reference index file for bwa aln
 ============================
+
 	> ./build-index
+
 Which runs bwa index -a bwtsw $ref_file to construct the FM-index for the reference genome.
 
 VI. Configure bwa aln for running
 ============================
+
 	> vi aln-head
 	
 Modify configuration:
+
 	host1=crt45					# name of host1
 	host1_exe=bwa				# executable file name on host1
 	host1_num_tasks=2			# number of tasks on host1
@@ -127,32 +172,53 @@ Modify configuration:
 	picard_output=sorted.sam
 	
 Note that: 
+
 (1) Intel Xeon Phi is considered as a independent host
+
 (2) num_tasks * num_threads must <= number of logical cores on this host
+
 (3) The ratio of host:host-mic0=host1_ratio:host2_ratio according to the speed of their independent running
+
 (4) Set aln output file name by res_file1 and res_file2, needn’t set by -f output file name
 
 VII. Run bwa aln on Intel Xeon
 ============================
+
 1. Split input data file for multiple tasks
+
 	> ./aln-cpu-split
+
 2. Run 
+
 	> ./aln-cpu-run
+
 Which runs bwa aln on Intel Xeon.
 
 VIII. Run bwa aln on Intel Xeon Phi
 ============================
+
 1. Split input data file for multiple tasks
+
 	> ./aln-1mic-split
+
 2. Run 
+
 	> ./aln-1mic-run
+
 Which runs bwa aln on Intel Xeon.
 
 IX. Run bwa aln on Intel Xeon and Intel Xeon Phi symmetric
 ============================
+
 1. Modify host1_ratio and host2_ratio in aln_head according to the performance on Intel Xeon and Intel Xeon Phi
+
 2. Split input data file for multiple tasks
+
 	> ./aln-cpu-and-1mic-split
+
 3. Run
+
 	> ./aln-cpu-and-1mic-run
+
 Which runs bwa aln on Intel Xeon and Intel Xeon Phi.	
+
