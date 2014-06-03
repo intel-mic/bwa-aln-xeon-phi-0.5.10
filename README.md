@@ -231,7 +231,7 @@ You, Liang <liang.you@intel.com>
 
 Ramanujam, Ram <ram.ramanujam@intel.com>
 
-Congdon, Charles W <charles.w.congdon@intel.com>
+Congdon, Charles <charles.w.congdon@intel.com>
 
 
 
