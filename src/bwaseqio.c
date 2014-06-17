@@ -7,6 +7,7 @@
 //#define READ_OPT	// Use FILE instead of gzFile
 
 // For MPI
+#ifdef USE_MPI
 #include "mpi.h"
 extern int mpi_id, mpi_numprocs, mpi_name_len;
 extern char mpi_name[MPI_MAX_PROCESSOR_NAME];
@@ -252,17 +253,17 @@ bwa_seqio_t *bwa_seq_open_1(const char *fn, int num_tasks, int task_id)
 	fp = fopen(filename, "r");
 #endif
 
-#ifdef USE_MPI
+#ifdef READ_OPT
 
 	// Calclation file length
-	//fseek(fp, 0, SEEK_END);
-	//unsigned int total_file_len = ftell(fp);	
+	fseek(fp, 0, SEEK_END);
+	unsigned int total_file_len = ftell(fp);	
 	
 	// Back to the begin of the file
-	//fseek(fp, 0, SEEK_SET);
+	fseek(fp, 0, SEEK_SET);
 
 	// File length of each task
-	//file_end[task_id] = total_file_len;
+	file_end[task_id] = total_file_len;
 
 #pragma omp barrier
 
@@ -462,14 +463,14 @@ bwa_seq_t *bwa_read_seq_1(bwa_seqio_t *bs, int n_needed, int *n, int mode, int t
 	int n_seqs, l, i, is_comp = mode&BWA_MODE_COMPREAD, is_64 = mode&BWA_MODE_IL13, l_bc = mode>>24;
 	long n_trimmed = 0, n_tot = 0;
 
-#ifdef USE_MPI
+#ifdef READ_OPT
 
-	//FILE* fp = seq->f->f;
-	
+	FILE* fp = seq->f->f;
+
 	// If current file position reached file_end, return 0: finish reading
-	//unsigned int current = ftell(fp);				
-	//fprintf(stderr, "I am on %s, task_id = %d, current file position is %u of %u\n", mpi_name, task_id, current, file_end[task_id]);
-	//if(ftell(fp) >= file_end[task_id]) return 0;
+	unsigned int current = ftell(fp);				
+	fprintf(stderr, "I am on %s, task_id = %d, current file position is %u of %u\n", mpi_name, task_id, current, file_end[task_id]);
+	if(ftell(fp) >= file_end[task_id]) return 0;
 
 #endif
 	
