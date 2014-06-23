@@ -265,9 +265,9 @@ bwa_seqio_t *bwa_seq_open_1(const char *fn, int num_tasks, int task_id)
 	// File length of each task
 	file_end[task_id] = total_file_len;
 
-#pragma omp barrier
-
 #endif	// USE_MPI
+
+#pragma omp barrier
 
 	bs->ks = kseq_init(fp);
 	return bs;
