@@ -1,6 +1,7 @@
 source aln-head
 
 cd ${src_directory}
+export I_MPI_LINK=opt
 make clean
 make
 mv bwa bwa0
