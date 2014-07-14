@@ -202,7 +202,7 @@ inline void bwt_occ4(const bwt_t *bwt, bwtint_t k, bwtint_t cnt[4])
 	x = 0;
 
 	unsigned char* p_ptr = (unsigned char*)p;
-#pragma simd
+#pragma simd reduction(+:x)
 #pragma loop_count max(30)
 	for (ii = 0; ii < len*4; ii ++){
 		x += bwt->cnt_table[p_ptr[ii]];
@@ -283,7 +283,7 @@ inline void bwt_2occ4(const bwt_t *bwt, bwtint_t k, bwtint_t l, bwtint_t cntk[4]
 #ifdef SIMP_OPT	
 
 		bwtint_t ii;
-		j = k & 0xfffffff0;						// zero lower 4 bits£¬1111 0000, k >> 4 << 4
+		j = k & 0xfffffff0;						// zero lower 4 bits, 1111 0000, k >> 4 << 4
 		bwtint_t start = k & 0xffffff80;		// zero lower 7 bits, 1000 0000, k / OCC_INTERVAL * OCC_INTERVAL
 		bwtint_t end   = j;
 		bwtint_t len   = (end - start)>>4;		// /16 = 2^4
@@ -319,14 +319,14 @@ inline void bwt_2occ4(const bwt_t *bwt, bwtint_t k, bwtint_t l, bwtint_t cntk[4]
 
 #ifdef SIMP_OPT	
 
-		j = l & 0xfffffff0;				// zero lower 4 bits£¬1111 0000, l >> 4 << 4
+		j = l & 0xfffffff0;				// zero lower 4 bits, 1111 0000, l >> 4 << 4
 		start = i;
 		end   = j;
 		len   = (end - start) >> 4;
 		
 		unsigned char* p_chr = (unsigned char*)p;
 		
-#pragma simd
+#pragma simd reduction(+:x)
 #pragma loop_count max(30)
 		for (ii = 0; ii < len*4; ii ++) {									
 			y += bwt->cnt_table[p_chr[ii]];

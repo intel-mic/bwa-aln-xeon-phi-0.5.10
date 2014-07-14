@@ -124,6 +124,8 @@ void bwa_cal_sa_reg_gap(int tid, bwt_t *const bwt[2], int n_seqs, bwa_seq_t *seq
 		
 #endif
 
+#ifdef __MIC__
+	// Binding threads only on MIC
 	// Binding threads
 	int ithr = task_id * (ncpus / num_tasks) + omp_get_thread_num();	
 	int icpu = (ithr + 1) % ncpus;								// +1: binding logical cores, [1 ~ 243, 0]
@@ -133,7 +135,8 @@ void bwa_cal_sa_reg_gap(int tid, bwt_t *const bwt[2], int n_seqs, bwa_seq_t *seq
 	kmp_set_affinity_mask_proc(icpu, &m);
 	kmp_set_affinity(&m);
 	kmp_destroy_affinity_mask(&m);
-
+#endif	
+	
 	int i, max_l = 0, max_len;
 	gap_stack_t *stack;
 	bwt_width_t *w[2], *seed_w[2];
@@ -371,6 +374,9 @@ void bwa_aln_core(const char *prefix, const char *fn_fa, const char *res_aln, co
 		fprintf(stderr, "I am on %s, task_id = %d, Loading index time %.2f sec\n", mpi_name, task_id, end);
 	}
 	
+	// Tasks should barrier here
+#pragma omp barrier	
+	
 	// Initialization input file
 	ks = bwa_open_reads_1(opt->mode, fn_fa, num_tasks, task_id);	
 
@@ -585,6 +591,23 @@ int bwa_aln(int argc, char *argv[])
 #pragma omp parallel num_threads(num_tasks)
 {
 	int task_id = omp_get_thread_num();
+	
+#ifdef __MIC__
+	// Binding threads only on MIC
+	// Binding to core 61
+	int icpu;
+	if(task_id == 0) icpu = 0;
+	if(task_id == 1) icpu = 241;
+	if(task_id == 2) icpu = 242;
+	if(task_id == 3) icpu = 243;	
+	
+	kmp_affinity_mask_t m;                                                                          // set kmp affinity
+	kmp_create_affinity_mask(&m);
+	kmp_set_affinity_mask_proc(icpu, &m);
+	kmp_set_affinity(&m);
+	kmp_destroy_affinity_mask(&m);
+#endif
+
 	bwa_aln_core(argv[optind], argv[optind+1], argv[optind+2], opt, num_tasks, task_id);
 }
 
