@@ -5,14 +5,8 @@ source aln-head
 rm -rf ${data_directory}/*.sai
 
 #file1
-mpirun -n 1 -host $host1 ${src_directory}/$host1_exe aln -l 32 -k 2 -t $host1_num_threads $ref_file ${host1_input_file1} ${host1_output_file1} $host1_num_tasks \
-     : -n 1 -host $host2 ${src_directory}/$host2_exe aln -l 32 -k 2 -t $host2_num_threads $ref_file ${host2_input_file1} ${host2_output_file1} $host2_num_tasks
-
-#file2
-mpirun -n 1 -host $host1 ${src_directory}/$host1_exe aln -l 32 -k 2 -t $host1_num_threads $ref_file ${host1_input_file2} ${host1_output_file2} $host1_num_tasks \
-     : -n 1 -host $host2 ${src_directory}/$host2_exe aln -l 32 -k 2 -t $host2_num_threads $ref_file ${host2_input_file2} ${host2_output_file2} $host2_num_tasks
-
-
+mpirun -n 1 -host $host1 ${src_directory}/$host1_exe aln -t $host1_num_threads $ref_file ${host1_input_file1} ${host1_output_file1} $host1_num_tasks \
+     : -n 1 -host $host2 ${src_directory}/$host2_exe aln -t $host2_num_threads $ref_file ${host2_input_file1} ${host2_output_file1} $host2_num_tasks
 
 #file1
 #host1
@@ -23,8 +17,13 @@ cat $${host1_output_file1}_2.sai >> $res_file1
 cat ${host2_output_file1}_0.sai >> $res_file1
 cat ${host2_output_file1}_1.sai >> $res_file1
 cat ${host2_output_file1}_2.sai >> $res_file1
-
-
+cat ${host2_output_file1}_3.sai >> $res_file1
+	 
+	 
+	 
+#file2
+mpirun -n 1 -host $host1 ${src_directory}/$host1_exe aln -t $host1_num_threads $ref_file ${host1_input_file2} ${host1_output_file2} $host1_num_tasks \
+     : -n 1 -host $host2 ${src_directory}/$host2_exe aln -t $host2_num_threads $ref_file ${host2_input_file2} ${host2_output_file2} $host2_num_tasks
 
 #file2
 #host1
@@ -35,6 +34,6 @@ cat ${host1_output_file2}_2.sai >> $res_file2
 cat ${host2_output_file2}_0.sai >> $res_file2
 cat ${host2_output_file2}_1.sai >> $res_file2
 cat ${host2_output_file2}_2.sai >> $res_file2
-
+cat ${host2_output_file2}_3.sai >> $res_file2
 
 

@@ -1,4 +1,4 @@
-host1=crt45
+host1=crt03
 host1_exe=bwa
 host1_num_tasks=2
 host1_num_threads=16
@@ -18,10 +18,10 @@ host3_ratio=7
 
 src_directory=../src
 
-data_directory=../data/Drosophila
-ref_file=${data_directory}/ref-Drosophila.fa
-file1=${data_directory}/SRR018292_1.fastq.clean
-file2=${data_directory}/SRR018292_2.fastq.clean
+data_directory=../data/public_workload
+ref_file=${data_directory}/hs37d5.fa
+file1=${data_directory}/SRR766060_1.filt.fastq
+file2=${data_directory}/SRR766060_2.filt.fastq
 
 res_tmp_file1=${data_directory}/tmp_aln_file1
 res_tmp_file2=${data_directory}/tmp_aln_file2
