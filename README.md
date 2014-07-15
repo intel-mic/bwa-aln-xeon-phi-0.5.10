@@ -9,6 +9,9 @@ II. Introduction
 ============================
 BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack(ALN), BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. 
 
+Original bwa-0.5.10 package can be downloaded from:
+http://sourceforge.net/projects/bio-bwa/files/
+
 This project bwa-aln-xeon-phi-0.5.10 optimizes bwa-0.5.10 ALN module performance on both Xeon and Xeon Phi platform, and supports symmetric running model on hybrid Xeon and Xeon Phi nodes.
 Optimization methods include:
 
@@ -23,9 +26,6 @@ Optimization methods include:
 (5) Data prefetch Intrinsics to reduce memory latency. 
 
 (6) Add task parallelism besides OpenMP to further improve load balance.
-
-Original bwa-0.5.10 package can be downloaded from:
-http://sourceforge.net/projects/bio-bwa/files/
 
 III. Preliminaries
 ============================
@@ -54,7 +54,11 @@ Run:
 
 Mout /home directory to Intel Xeon Phi:
 
+	> service mpss stop
+
 	> micctrl --addnfs=/home --dir=/home
+
+	> service mpss start
 
 4．Download zlib-1.2.8 from http://www.zlib.net/ and compile for Xeon Phi:
 
@@ -78,6 +82,17 @@ Then upload dynamic libraries to Xeon Phi:
 
 	> scp /home/zlib/lib/*.so* mic0:/lib64
 
+5. Download public workload from here:
+
+	Reference file:
+	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
+
+	100bp read pair:
+	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
+	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
+
+	then put them to the directory of bwa-aln-xeon-phi-0.5.10/data.
+	
 IV. Compiling bwa-aln-xeon-phi
 ============================
 1.	Set up the Intel MPI and Intel Compiler environments:
@@ -113,7 +128,7 @@ Upload Intel MPI and Intel Compiler Libraries to Intel Xeon Phi:
 	> scp /opt/intel/composer_xe_<version>/tbb/lib/mic/*.so* mic0:/lib64
 
 	> scp /opt/intel/composer_xe_<version>/mkl/lib/mic/lib*.so  mic0:/lib64
-	
+
 2.	Unpack the source code to any directory of /home and build the executables for Intel Xeon and Intel Xeon processor
 
 	> tar –xzvf bwa-aln-xeon-phi-0.5.10.tar.gz
@@ -138,7 +153,7 @@ VI. Configure bwa aln for running
 	
 Modify configuration:
 
-	host1=crt45					# name of host1
+	host1=crt03					# name of host1
 	host1_exe=bwa				# executable file name on host1
 	host1_num_tasks=2			# number of tasks on host1
 	host1_num_threads=16		# number of threads for each task
@@ -158,10 +173,10 @@ Modify configuration:
 	
 	src_directory=../src							# source code
 
-	data_directory=../data/Drosophila				# input data directory
-	ref_file=${data_directory}/ref-Drosophila.fa	# reference data file
-	file1=${data_directory}/SRR018292_1.fastq.clean	# input data file1
-	file2=${data_directory}/SRR018292_2.fastq.clean	# input data file2
+	data_directory=../data/public_workload			# input data directory
+	ref_file=${data_directory}/hs37d5.fa			# reference data file
+	file1=${data_directory}/SRR766060_1.filt.fastq	# input data file1
+	file2=${data_directory}/SRR766060_2.filt.fastq	# input data file2
 
 	res_tmp_file1=tmp_aln_file1						# temporary output file name of each task
 	res_tmp_file2=tmp_aln_file2
@@ -229,9 +244,11 @@ Contributors:
 
 You, Liang <liang.you@intel.com>
 
+Congdon, Charles <charles.w.congdon@intel.com>
+
 Ramanujam, Ram <ram.ramanujam@intel.com>
 
-Congdon, Charles <charles.w.congdon@intel.com>
+
 
 
 
