@@ -85,10 +85,13 @@ Then upload dynamic libraries to Xeon Phi:
 5. Download public workload from here:
 
 	Reference file:
+	
 	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
 
 	100bp read pair:
+	
 	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
+	
 	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
 
 	then put them to the directory of bwa-aln-xeon-phi-0.5.10/data.
