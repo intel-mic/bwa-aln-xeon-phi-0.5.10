@@ -82,6 +82,8 @@ Then upload dynamic libraries to Xeon Phi:
 
 	> scp /home/zlib/lib/*.so* mic0:/lib64
 
+Note:  If you unpacked and built zlib to some location other than /home/zlib, you will need to edit bwa-aln-xeon-phi-0.5.10/src/Makefile.mic to point to your preferred location.	
+	
 5. Download public workload from here:
 
 	Reference file:
@@ -96,7 +98,7 @@ Then upload dynamic libraries to Xeon Phi:
 
 	then put them to the directory of bwa-aln-xeon-phi-0.5.10/data.
 	
-IV. Compiling bwa-aln-xeon-phi
+IV. Compile bwa-aln-xeon-phi
 ============================
 1.	Set up the Intel MPI and Intel Compiler environments:
 
@@ -137,19 +139,14 @@ Upload Intel MPI and Intel Compiler Libraries to Intel Xeon Phi:
 	> tar –xzvf bwa-aln-xeon-phi-0.5.10.tar.gz
 
 	> cd bwa-aln-xeon-phi-0.5.10/scripts
+	
+	> chmod +x *
 
 	> ./build-src
 
 It will compile both executable binaries for Intel Xeon and Intel Xeon Phi.
 
-V. Build bwa reference index file for bwa aln
-============================
-
-	> ./build-index
-
-Which runs bwa index -a bwtsw $ref_file to construct the FM-index for the reference genome.
-
-VI. Configure bwa aln for running
+V. Configure bwa aln for running
 ============================
 
 	> vi aln-head
@@ -166,13 +163,13 @@ Modify configuration:
 	host2_exe=bwa_mic			# executable file name on host2
 	host2_num_tasks=3			# number of tasks on host2
 	host2_num_threads=80		# number of threads for each task
-	host2_ratio=5				# input data file ratio for mic0
+	host2_ratio=7				# input data file ratio for mic0
 
 	host3=${host1}-mic1			# host3: mic1 of host1
 	host3_exe=bwa_mic			# executable file name on host3
 	host3_num_tasks=3			# number of tasks on host3
 	host3_num_threads=80		# number of threads for each task
-	host3_ratio=5				# input data file ratio for mic1
+	host3_ratio=7				# input data file ratio for mic1
 	
 	src_directory=../src							# source code
 
@@ -184,7 +181,7 @@ Modify configuration:
 	res_tmp_file1=tmp_aln_file1						# temporary output file name of each task
 	res_tmp_file2=tmp_aln_file2
 
-	res_file1=aln_1.sai								# aln output file name
+	res_file1=aln_1.sai								# ALN output file name
 	res_file2=aln_2.sai
 
 	# for bwa sampe output and picard output
@@ -197,9 +194,16 @@ Note that:
 
 (2) num_tasks * num_threads must <= number of logical cores on this host
 
-(3) The ratio of host:host-mic0=host1_ratio:host2_ratio according to the speed of their independent running
+(3) Input data file is splited ino seral files according to the ratio for each host. The ratio of host to host-mic0 (equals host1_ratio to host2_ratio) is set according to the speed of their using the speed that each host independently processes the input data files.
 
-(4) Set aln output file name by res_file1 and res_file2, needn’t set by -f output file name
+(4) Set aln output file name by res_file1 and res_file2, needn’t set by -f output-file-name
+
+VI. Build bwa reference index file for bwa aln
+============================
+
+	> ./build-index
+
+Which runs bwa index -a bwtsw $ref_file to construct the FM-index for the reference genome.
 
 VII. Run bwa aln on Intel Xeon
 ============================
@@ -225,9 +229,9 @@ VIII. Run bwa aln on Intel Xeon Phi
 
 	> ./aln-1mic-run
 
-Which runs bwa aln on Intel Xeon.
+Which runs bwa aln native on Intel Xeon.
 
-IX. Run bwa aln on Intel Xeon and Intel Xeon Phi symmetric
+IX. Run bwa aln on Intel Xeon and Intel Xeon Phi in symmetric model
 ============================
 
 1. Modify host1_ratio and host2_ratio in aln_head according to the performance on Intel Xeon and Intel Xeon Phi
@@ -235,12 +239,24 @@ IX. Run bwa aln on Intel Xeon and Intel Xeon Phi symmetric
 2. Split input data file for multiple tasks
 
 	> ./aln-cpu-and-1mic-split
+	
+Split input file for Intel Xeon and 1 Intel Xeon Phi card
+	
+Or:
+
+	> ./aln-cpu-and-1mic-split
+	
+Split input file for Intel Xeon and 2 Intel Xeon Phi cards	
 
 3. Run
 
 	> ./aln-cpu-and-1mic-run
+	
+Which runs bwa aln on both Intel Xeon and 1 Intel Xeon Phi card in symmetric model.
 
-Which runs bwa aln on Intel Xeon and Intel Xeon Phi.	
+	> ./aln-cpu-and-2mic-run
+
+Which runs bwa aln on both Intel Xeon and 2 Intel Xeon Phi cards in symmetric model.
 
 Contributors:
 ============================

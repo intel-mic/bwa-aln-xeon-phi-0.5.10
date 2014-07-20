@@ -360,6 +360,8 @@ void bwa_aln_core(const char *prefix, const char *fn_fa, const char *res_aln, co
 	double end;
 	//bwt_t *bwt[2];
 
+	start = mysecond();	
+	
 	// Only task 0 load BWT, shared with other tasks
 	if(task_id == 0){
 		fprintf(stderr, "Prefix = %s, fn_fa = %s, res_aln = %s, num_tasks = %d\n", prefix, fn_fa, res_aln, num_tasks);
@@ -393,7 +395,6 @@ void bwa_aln_core(const char *prefix, const char *fn_fa, const char *res_aln, co
 		err_fwrite(opt, sizeof(gap_opt_t), 1, /*stdout*/output_file);
 
 	// Core loop
-	start = mysecond();
 	
 #ifdef MULTIBUFS_OPT	// MULTIBUFS_OPT
 	
