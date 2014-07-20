@@ -3,7 +3,7 @@ bwa-aln-xeon-phi-0.5.10
 
 I. Overview
 ============================
-This article provides a recipe for compiling, optimizing and running bwa-aln-xeon-phi-0.5.10 for Intel® Xeon® processors and Intel® Xeon Phi™ coprocessors.
+This article provides a recipe about how to get, compile and run optimized bwa-aln-xeon-phi-0.5.10 for on Intel® Xeon® processors and Intel® Xeon Phi™ coprocessors.
 
 II. Introduction
 ============================
