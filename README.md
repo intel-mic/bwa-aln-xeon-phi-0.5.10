@@ -76,13 +76,13 @@ Mout /home directory to Intel Xeon Phi:
 
 	> make install
 
-	zlib that support Xeon Phi will be installed at /home/zlib
+zlib that support Xeon Phi will be installed at /home/zlib
 
-	Then upload dynamic libraries to Xeon Phi:
+Then upload dynamic libraries to Xeon Phi:
 
 	> scp /home/zlib/lib/*.so* mic0:/lib64
 
-	Note:  If you unpacked and built zlib to some location other than /home/zlib, you will need to edit bwa-aln-xeon-phi-0.5.10/src/Makefile.mic to point to your preferred location.	
+Note:  If you unpacked and built zlib to some location other than /home/zlib, you will need to edit bwa-aln-xeon-phi-0.5.10/src/Makefile.mic to point to your preferred location.	
 	
 5. Download public workload from here:
 
@@ -203,7 +203,7 @@ VI. Build bwa reference index file for bwa aln
 
 	> ./build-index
 
-	Which runs bwa index -a bwtsw $ref_file to construct the FM-index for the reference genome.
+Which runs bwa index -a bwtsw $ref_file to construct the FM-index for the reference genome.
 
 VII. Run bwa aln on Intel Xeon
 ============================
@@ -229,7 +229,7 @@ VIII. Run bwa aln on Intel Xeon Phi
 
 	> ./aln-1mic-run
 
-	Which runs bwa aln native on Intel Xeon.
+Which runs bwa aln native on Intel Xeon.
 
 IX. Run bwa aln on Intel Xeon and Intel Xeon Phi in symmetric model
 ============================
