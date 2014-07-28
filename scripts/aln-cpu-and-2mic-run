@@ -6,11 +6,11 @@ rm -rf ${data_directory}/*.sai
 
 #file1
 echo mpirun -n 1 -host $host1 ${src_directory}/$host1_exe aln -t $host1_num_threads $ref_file ${host1_input_file1} ${host1_output_file1} $host1_num_tasks \
-     : -n 1 -host $host2 ${src_directory}/$host2_exe aln -t $host2_num_threads $ref_file ${host2_input_file2} ${host2_output_file2} $host2_num_tasks \
-     : -n 1 -host $host3 ${src_directory}/$host3_exe aln -t $host3_num_threads $ref_file ${host3_input_file2} ${host3_output_file2} $host3_num_tasks
+     : -n 1 -host $host2 ${src_directory}/$host2_exe aln -t $host2_num_threads $ref_file ${host2_input_file1} ${host2_output_file1} $host2_num_tasks \
+     : -n 1 -host $host3 ${src_directory}/$host3_exe aln -t $host3_num_threads $ref_file ${host3_input_file1} ${host3_output_file1} $host3_num_tasks
 mpirun -n 1 -host $host1 ${src_directory}/$host1_exe aln -t $host1_num_threads $ref_file ${host1_input_file1} ${host1_output_file1} $host1_num_tasks \
-     : -n 1 -host $host2 ${src_directory}/$host2_exe aln -t $host2_num_threads $ref_file ${host2_input_file2} ${host2_output_file2} $host2_num_tasks \
-     : -n 1 -host $host3 ${src_directory}/$host3_exe aln -t $host3_num_threads $ref_file ${host3_input_file2} ${host3_output_file2} $host3_num_tasks
+     : -n 1 -host $host2 ${src_directory}/$host2_exe aln -t $host2_num_threads $ref_file ${host2_input_file1} ${host2_output_file1} $host2_num_tasks \
+     : -n 1 -host $host3 ${src_directory}/$host3_exe aln -t $host3_num_threads $ref_file ${host3_input_file1} ${host3_output_file1} $host3_num_tasks
 
 #file1
 #host1

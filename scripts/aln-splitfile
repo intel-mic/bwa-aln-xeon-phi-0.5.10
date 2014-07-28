@@ -1,7 +1,8 @@
 # Split file
 
+echo
 file=$1
-echo Splite file name:$file
+echo Split file name:$file
 
 num_tasks=$2
 echo num_tasks:$num_tasks
@@ -20,15 +21,16 @@ echo num_block_rows:$num_block_rows
 
 split -l $num_block_rows $file $file
 
-echo Splite result:
+echo Split result:
 echo ${file}_0
 echo ${file}_1
 echo ${file}_2
-#echo ${file}_3
+echo ${file}_3
 
 mv ${file}aa ${file}_0
 mv ${file}ab ${file}_1
 mv ${file}ac ${file}_2
-#mv ${file}ad ${file}_3
+mv ${file}ad ${file}_3
 
+echo
 
