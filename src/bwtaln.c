@@ -112,7 +112,7 @@ static int bwt_cal_width(const bwt_t *rbwt, int len, const ubyte_t *str, bwt_wid
 void bwa_cal_sa_reg_gap(int tid, bwt_t *const bwt[2], int n_seqs, bwa_seq_t *seqs, const gap_opt_t *opt, int num_tasks, int task_id)
 {
 	int ncpus = kmp_get_affinity_max_proc();
-
+	
 #ifdef OMP_OPT
 #pragma omp parallel num_threads(opt->n_threads)
 #endif
@@ -126,8 +126,7 @@ void bwa_cal_sa_reg_gap(int tid, bwt_t *const bwt[2], int n_seqs, bwa_seq_t *seq
 
 #ifdef __MIC__
 	// Binding threads only on MIC
-	// Binding threads
-	int ithr = task_id * (ncpus / num_tasks) + omp_get_thread_num();	
+	int ithr = task_id * (opt->n_threads) + omp_get_thread_num();	
 	int icpu = (ithr + 1) % ncpus;								// +1: binding logical cores, [1 ~ 243, 0]
 	
 	kmp_affinity_mask_t m;										// set kmp affinity
