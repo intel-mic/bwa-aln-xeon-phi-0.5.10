@@ -38,9 +38,11 @@ http://sourceforge.net/projects/bio-bwa/files/
 
 III. Preliminaries
 ============================
-1. Install Intel® MPI Library 4.1 and Intel® C++ Compiler 13.3 or higher on your host system.
+1. To build this package, install the Intel® MPI Library 4.1 and Intel® C++ Composer XE 13.3 or higher products on your host system.  Your host system must also have the Intel® MPSS for Linux* installed (installed separately from Intel® C++ Compiler XE).
+
 2. Download bwa-aln-xeon-phi-0.5.10 from https://github.com/intel-mic/bwa-aln-xeon-phi-0.5.10
-3. Install NFS and start NFS service, export /home directory and mount it to Intel Xeon Phi:
+
+3. Install NFS and start the NFS service, export the /home directory, and mount it to the Intel® Xeon Phi™ coprocessor:
 
 	> service nfs start
 
@@ -61,7 +63,7 @@ Run:
 	Export list for Host:
 	/home        172.31.0.0/16
 
-Mout /home directory to Intel Xeon Phi:
+Mount the /home directory to the Intel® Xeon Phi™ coprocessor:
 
 	> service mpss stop
 
@@ -69,6 +71,22 @@ Mout /home directory to Intel Xeon Phi:
 
 	> service mpss start
 
+4.	Set up the Intel® MPI Library and Intel® C++ Compiler environments:	
+	
+	> source /opt/intel/impi/<version>/bin64/mpivars.sh
+
+	> source /opt/intel/ composer_xe_<version>/bin/compilervars.sh intel64
+
+	> vi ~/.bashrc
+
+Add:
+
+	export I_MPI_MIC=enable
+	export I_MPI_MIC_POSTFIX=_mic
+	export I_MPI_FABRICS=shm:tcp
+	export I_MPI_PIN=enable
+	Run ~/.bashrc
+	
 4．Download zlib-1.2.8 from http://www.zlib.net/ and compile for Xeon Phi:
 
 	> export CC=icc
