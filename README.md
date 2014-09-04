@@ -45,7 +45,6 @@ III. Preliminaries
 3. Install NFS and start the NFS service, export the /home directory, and mount it to the Intel® Xeon Phi™ coprocessor:
 
 	> service nfs start
-
 	> vi /etc/exports
 
 Add:
@@ -55,9 +54,7 @@ Add:
 Run:
 	
 	> exportfs -au
-
 	> exportfs -ar
-
 	> showmount -e
 
 	Export list for Host:
@@ -66,17 +63,13 @@ Run:
 Mount the /home directory to the Intel® Xeon Phi™ coprocessor:
 
 	> service mpss stop
-
 	> micctrl --addnfs=/home --dir=/home
-
 	> service mpss start
 
 4.	Set up the Intel® MPI Library and Intel® C++ Compiler environments:	
 	
 	> source /opt/intel/impi/<version>/bin64/mpivars.sh
-
 	> source /opt/intel/ composer_xe_<version>/bin/compilervars.sh intel64
-
 	> vi ~/.bashrc
 
 Add:
@@ -85,7 +78,8 @@ Add:
 	export I_MPI_MIC_POSTFIX=_mic
 	export I_MPI_FABRICS=shm:tcp
 	export I_MPI_PIN=enable
-	Run ~/.bashrc
+	
+Run ~/.bashrc
 	
 4．Download zlib-1.2.8 from http://www.zlib.net/ and compile for Xeon Phi:
 
