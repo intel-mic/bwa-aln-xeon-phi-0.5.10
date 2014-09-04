@@ -285,6 +285,45 @@ For the public workload we described above, the following graph shows the speedu
 
 •	Up to 2.76x speedup can be achieved when processing both sets of reads using this code on two Intel® Xeon Phi™ coprocessors + Intel® Xeon® Processor E5-2697 v2 vs. original code(bwa-0.5.10 aln, 48 threads) running on a 2-Socket Intel® Xeon® Processor E5-2697 v2.
 
+Testing platform configuration:
+
+Server with Intel® Xeon® Processors E5-2697 v2: Two sockets, 12-core, 2.7 GHz, 64GB DDR3-1600, 8.0 GT/s, OS version: Red Hat Enterprise Linux Server release 6.5, Intel® Turbo Boost Technology enabled, Intel® Hyper-Threading Technology (Intel® HT Technology) enabled
+
+Intel® Xeon Phi™ Coprocessor: 7120A, 61-core 1.238 GHz, 16GB GDDR5-5500,  5.5 GT/s, MPSS 2.1.6720-21, Flash version 2.1.03.0386, uOS version : 2.6.38.8-gefd324e, ECC enabled, Intel® Turbo Boost Technology disabled
+
+Legal Disclaimers
+============================
+
+For more information go to http://www.intel.com/performance
+
+Software and workloads used in performance tests may have been optimized for performance only on Intel microprocessors. Performance tests, are measured using specific computer systems, components, software, operations and functions. Any change to any of those factors may cause the results to vary. You should consult other information and performance tests to assist you in fully evaluating your contemplated purchases, including the performance of that product when combined with other products.
+
+Optimization Notice
+
+Intel's compilers may or may not optimize to the same degree for non-Intel microprocessors for optimizations that are not unique to Intel microprocessors. These optimizations include SSE2, SSE3, and SSE3 instruction sets and other optimizations. Intel does not guarantee the availability, functionality, or effectiveness of any optimization on microprocessors not manufactured by Intel. Microprocessor-dependent optimizations in this product are intended for use with Intel microprocessors. Certain optimizations not specific to Intel microarchitecture are reserved for Intel microprocessors. Please refer to the applicable product User and Reference Guides for more information regarding the specific instruction sets covered by this notice.
+
+Notice revision #20110804
+
+By using this document, in addition to any agreements you have with Intel, you accept the terms set forth below.
+You may not use or facilitate the use of this document in connection with any infringement or other legal analysis concerning Intel products described herein.  You agree to grant Intel a non-exclusive, royalty-free license to any patent claim thereafter drafted which includes subject matter disclosed herein.
+
+INFORMATION IN THIS DOCUMENT IS PROVIDED IN CONNECTION WITH INTEL PRODUCTS. NO LICENSE, EXPRESS OR IMPLIED, BY ESTOPPEL OR OTHERWISE, TO ANY INTELLECTUAL PROPERTY RIGHTS IS GRANTED BY THIS DOCUMENT. EXCEPT AS PROVIDED IN INTEL'S TERMS AND CONDITIONS OF SALE FOR SUCH PRODUCTS, INTEL ASSUMES NO LIABILITY WHATSOEVER AND INTEL DISCLAIMS ANY EXPRESS OR IMPLIED WARRANTY, RELATING TO SALE AND/OR USE OF INTEL PRODUCTS INCLUDING LIABILITY OR WARRANTIES RELATING TO FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR INFRINGEMENT OF ANY PATENT, COPYRIGHT OR OTHER INTELLECTUAL PROPERTY RIGHT. 
+
+A "Mission Critical Application" is any application in which failure of the Intel Product could result, directly or indirectly, in personal injury or death. SHOULD YOU PURCHASE OR USE INTEL'S PRODUCTS FOR ANY SUCH MISSION CRITICAL APPLICATION, YOU SHALL INDEMNIFY AND HOLD INTEL AND ITS SUBSIDIARIES, SUBCONTRACTORS AND AFFILIATES, AND THE DIRECTORS, OFFICERS, AND EMPLOYEES OF EACH, HARMLESS AGAINST ALL CLAIMS COSTS, DAMAGES, AND EXPENSES AND REASONABLE ATTORNEYS' FEES ARISING OUT OF, DIRECTLY OR INDIRECTLY, ANY CLAIM OF PRODUCT LIABILITY, PERSONAL INJURY, OR DEATH ARISING IN ANY WAY OUT OF SUCH MISSION CRITICAL APPLICATION, WHETHER OR NOT INTEL OR ITS SUBCONTRACTOR WAS NEGLIGENT IN THE DESIGN, MANUFACTURE, OR WARNING OF THE INTEL PRODUCT OR ANY OF ITS PARTS. 
+
+Intel may make changes to specifications and product descriptions at any time, without notice. Designers must not rely on the absence or characteristics of any features or instructions marked "reserved" or "undefined". Intel reserves these for future definition and shall have no responsibility whatsoever for conflicts or incompatibilities arising from future changes to them. The information here is subject to change without notice. Do not finalize a design with this information. 
+
+The products described in this document may contain design defects or errors known as errata which may cause the product to deviate from published specifications. Current characterized errata are available on request. 
+
+Contact your local Intel sales office or your distributor to obtain the latest specifications and before placing your product order. 
+
+Copies of documents which have an order number and are referenced in this document, or other Intel literature, may be obtained by calling 1-800-548-4725, or go to: http://www.intel.com/design/literature.htm
+
+* Other names and brands may be claimed as the property of others.
+Copyright © 2014 Intel Corporation. All rights reserved
+
+
+
 
 
 
