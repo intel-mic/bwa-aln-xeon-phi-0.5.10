@@ -161,6 +161,8 @@ ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.fi
 	
 ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
 
+Then make a directory public_workload in bwa-aln-xeon-phi-0.5.10/data and put all the download files to bwa-aln-xeon-phi-0.5.10/data/public_workload.
+
 Now prepare for testing by modifying the included scripts to match your test environment:
 	
 	> vi aln-head
