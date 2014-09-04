@@ -59,7 +59,9 @@ III. Preliminaries
 	Run:
 	
 	> exportfs -au
+	
 	> exportfs -ar
+	
 	> showmount -e
 
 	Export list for Host:
@@ -68,20 +70,27 @@ III. Preliminaries
 	Mount the /home directory to the Intel® Xeon Phi™ coprocessor:
 
 	> service mpss stop
+	
 	> micctrl --addnfs=/home --dir=/home
+	
 	> service mpss start
 
 4. Set up the Intel® MPI Library and Intel® C++ Compiler environments:	
 	
 	> source /opt/intel/impi/<version>/bin64/mpivars.sh
+	
 	> source /opt/intel/ composer_xe_<version>/bin/compilervars.sh intel64
+	
 	> vi ~/.bashrc
 
 	Add:
 
 	export I_MPI_MIC=enable
+	
 	export I_MPI_MIC_POSTFIX=_mic
+	
 	export I_MPI_FABRICS=shm:tcp
+	
 	export I_MPI_PIN=enable
 	
 	Run ~/.bashrc
@@ -89,8 +98,11 @@ III. Preliminaries
 5. Download zlib-1.2.8 from http://www.zlib.net/ and compile it for the Intel® Xeon Phi™ coprocessor:
 
 	> export CC=icc
+	
 	> export CFLAGS=-mmic
+	
 	> ./configure --prefix=/home/zlib
+	
 	> make
 
 	icc -mmic  -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -c -o example.o test/example.c
