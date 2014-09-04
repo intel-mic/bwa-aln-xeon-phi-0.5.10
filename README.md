@@ -7,6 +7,7 @@ You, Liang (Intel); Congdon, Charles (Intel)
 
 I. Overview
 ============================
+
 This article provides a recipe for how to obtain, compile, and run an optimized version of BWA ALN 0.5.10 on Intel® Xeon® processors and Intel® Xeon Phi™ coprocessors.
 
 The source for this version of BWA ALN 0.5.10 can be downloaded from: 
@@ -15,7 +16,9 @@ https://github.com/intel-mic/bwa-aln-xeon-phi-0.5.10
 
 II. Introduction
 ============================
+
 “BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack(ALN), BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp.” (http://bio-bwa.sourceforge.net/bwa.shtml)
+
 This project, bwa-aln-xeon-phi-0.5.10, optimizes the performance of the BWA 0.5.10 ALN module on both Intel® Xeon® processors and Intel® Xeon Phi™ coprocessors, and supports a symmetric execution model that uses both architectures in cooperation for genome mapping.
 
 Optimizations in this package include:
@@ -38,6 +41,7 @@ http://sourceforge.net/projects/bio-bwa/files/
 
 III. Preliminaries
 ============================
+
 1. To build this package, install the Intel® MPI Library 4.1 and Intel® C++ Composer XE 13.3 or higher products on your host system.  Your host system must also have the Intel® MPSS for Linux* installed (installed separately from Intel® C++ Compiler XE).
 
 2. Download bwa-aln-xeon-phi-0.5.10 from https://github.com/intel-mic/bwa-aln-xeon-phi-0.5.10
@@ -45,6 +49,7 @@ III. Preliminaries
 3. Install NFS and start the NFS service, export the /home directory, and mount it to the Intel® Xeon Phi™ coprocessor:
 
 	> service nfs start
+	
 	> vi /etc/exports
 
 Add:
@@ -81,14 +86,11 @@ Add:
 	
 Run ~/.bashrc
 	
-4．Download zlib-1.2.8 from http://www.zlib.net/ and compile for Xeon Phi:
+5. Download zlib-1.2.8 from http://www.zlib.net/ and compile it for the Intel® Xeon Phi™ coprocessor:
 
 	> export CC=icc
-
 	> export CFLAGS=-mmic
-
 	> ./configure --prefix=/home/zlib
-
 	> make
 
 	icc -mmic  -D_LARGEFILE64_SOURCE=1 -DHAVE_HIDDEN -I. -c -o example.o test/example.c
@@ -97,51 +99,16 @@ Run ~/.bashrc
 
 	> make install
 
-zlib that support Xeon Phi will be installed at /home/zlib
+A version of zlib* that supports the Intel® Xeon Phi™ coprocessor will be installed at /home/zlib (note:  this library cannot be used on Intel® Xeon® processors)
 
-Then upload dynamic libraries to Xeon Phi:
+Upload the zlib dynamic libraries to the Intel® Xeon Phi™ coprocessor:
 
-	> scp /home/zlib/lib/*.so* mic0:/lib64
+	> scp /home/zlib/lib/*.so* mic0:/lib64	
 
-Note:  If you unpacked and built zlib to some location other than /home/zlib, you will need to edit bwa-aln-xeon-phi-0.5.10/src/Makefile.mic to point to your preferred location.	
-	
-5. Download public workload from here:
-
-	Reference file:
-	
-	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
-
-	100bp read pair:
-	
-	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
-	
-	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
-
-	then put them to the directory of bwa-aln-xeon-phi-0.5.10/data.
-	
 IV. Compile bwa-aln-xeon-phi
 ============================
-1.	Set up the Intel MPI and Intel Compiler environments:
 
-	> source /opt/intel/impi/<version>/bin64/mpivars.sh
-
-	> source /opt/intel/compserxe/bin/compilervars.sh intel64
-
-	> vi ~/.bashrc
-
-Add:
-
-	export I_MPI_MIC=enable
-
-	export I_MPI_MIC_POSTFIX=_mic
-
-	export I_MPI_FABRICS=shm:tcp
-
-	export I_MPI_PIN=enable
-
-Run ~/.bashrc
-
-Upload Intel MPI and Intel Compiler Libraries to Intel Xeon Phi:
+1. Upload the Intel® MPI Library and Intel® C Compiler components to the Intel® Xeon Phi™ coprocessor:
 
 	> scp /opt/intel/impi/<version>/mic/bin/mpiexec      mic0:/bin/
 
@@ -155,7 +122,7 @@ Upload Intel MPI and Intel Compiler Libraries to Intel Xeon Phi:
 
 	> scp /opt/intel/composer_xe_<version>/mkl/lib/mic/lib*.so  mic0:/lib64
 
-2.	Unpack the source code to any directory of /home and build the executables for Intel Xeon and Intel Xeon processor
+2.	Unpack the source code to any directory of /home and build the executables for the Intel® Xeon® processor and the Intel® Xeon Phi™ coprocessor
 
 	> tar –xzvf bwa-aln-xeon-phi-0.5.10.tar.gz
 
@@ -165,11 +132,22 @@ Upload Intel MPI and Intel Compiler Libraries to Intel Xeon Phi:
 
 	> ./build-src
 
-It will compile both executable binaries for Intel Xeon and Intel Xeon Phi.
+This will build executables for both the Intel® Xeon® processor and Intel® Xeon Phi™ coprocessor.
+
+Note:  If you unpacked and built zlib to some location other than /home/zlib, you will need to edit bwa-aln-xeon-phi-0.5.10/src/Makefile.mic to point to your preferred location.
 
 V. Configure bwa aln for running
 ============================
 
+To test this code, we recommend starting with publically available data:
+
+•	Get the reference genome from ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
+•	Download and unpack the following read pair:
+	o	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
+	o	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
+
+Now prepare for testing by modifying the included scripts to match your test environment:
+	
 	> vi aln-head
 	
 Modify configuration:
