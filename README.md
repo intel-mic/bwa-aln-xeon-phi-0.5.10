@@ -52,11 +52,11 @@ III. Preliminaries
 	
 	> vi /etc/exports
 
-Add:
+	Add:
 
 	/home          172.31.0.0/16(rw,insecure,no_root_squash,async)
 
-Run:
+	Run:
 	
 	> exportfs -au
 	> exportfs -ar
@@ -65,7 +65,7 @@ Run:
 	Export list for Host:
 	/home        172.31.0.0/16
 
-Mount the /home directory to the Intel® Xeon Phi™ coprocessor:
+	Mount the /home directory to the Intel® Xeon Phi™ coprocessor:
 
 	> service mpss stop
 	> micctrl --addnfs=/home --dir=/home
@@ -77,14 +77,14 @@ Mount the /home directory to the Intel® Xeon Phi™ coprocessor:
 	> source /opt/intel/ composer_xe_<version>/bin/compilervars.sh intel64
 	> vi ~/.bashrc
 
-Add:
+	Add:
 
 	export I_MPI_MIC=enable
 	export I_MPI_MIC_POSTFIX=_mic
 	export I_MPI_FABRICS=shm:tcp
 	export I_MPI_PIN=enable
 	
-Run ~/.bashrc
+	Run ~/.bashrc
 	
 5. Download zlib-1.2.8 from http://www.zlib.net/ and compile it for the Intel® Xeon Phi™ coprocessor:
 
