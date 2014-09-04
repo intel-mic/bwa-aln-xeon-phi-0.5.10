@@ -287,9 +287,9 @@ For the public workload we described above, the following graph shows the speedu
 
 Testing platform configuration:
 
-Server with Intel® Xeon® Processors E5-2697 v2: Two sockets, 12-core, 2.7 GHz, 64GB DDR3-1600, 8.0 GT/s, OS version: Red Hat Enterprise Linux Server release 6.5, Intel® Turbo Boost Technology enabled, Intel® Hyper-Threading Technology (Intel® HT Technology) enabled
+•	Server with Intel® Xeon® Processors E5-2697 v2: Two sockets, 12-core, 2.7 GHz, 64GB DDR3-1600, 8.0 GT/s, OS version: Red Hat Enterprise Linux Server release 6.5, Intel® Turbo Boost Technology enabled, Intel® Hyper-Threading Technology (Intel® HT Technology) enabled
 
-Intel® Xeon Phi™ Coprocessor: 7120A, 61-core 1.238 GHz, 16GB GDDR5-5500,  5.5 GT/s, MPSS 2.1.6720-21, Flash version 2.1.03.0386, uOS version : 2.6.38.8-gefd324e, ECC enabled, Intel® Turbo Boost Technology disabled
+•	Intel® Xeon Phi™ Coprocessor: 7120A, 61-core 1.238 GHz, 16GB GDDR5-5500,  5.5 GT/s, MPSS 2.1.6720-21, Flash version 2.1.03.0386, uOS version : 2.6.38.8-gefd324e, ECC enabled, Intel® Turbo Boost Technology disabled
 
 Legal Disclaimers
 ============================
