@@ -153,13 +153,13 @@ V. Configure bwa aln for running
 
 1. To test this code, we recommend starting with publically available data:
 
-Get the reference genome from ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
+	Get the reference genome from ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
 	
-Download and unpack the following read pair:
+	Download and unpack the following read pair:
 
-ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
+	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
 	
-ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
+	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
 
 2. Make a directory public_workload in bwa-aln-xeon-phi-0.5.10/data and put all the download files to bwa-aln-xeon-phi-0.5.10/data/public_workload.
 
