@@ -151,7 +151,7 @@ Note:  If you unpacked and built zlib to some location other than /home/zlib, yo
 V. Configure bwa aln for running
 ============================
 
-To test this code, we recommend starting with publically available data:
+1. To test this code, we recommend starting with publically available data:
 
 Get the reference genome from ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
 	
@@ -161,9 +161,9 @@ ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.fi
 	
 ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
 
-Then make a directory public_workload in bwa-aln-xeon-phi-0.5.10/data and put all the download files to bwa-aln-xeon-phi-0.5.10/data/public_workload.
+2. Make a directory public_workload in bwa-aln-xeon-phi-0.5.10/data and put all the download files to bwa-aln-xeon-phi-0.5.10/data/public_workload.
 
-Now prepare for testing by modifying the included scripts to match your test environment:
+3. Prepare for testing by modifying the included scripts to match your test environment:
 	
 	> vi aln-head
 	
