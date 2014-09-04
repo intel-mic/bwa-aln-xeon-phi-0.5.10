@@ -153,13 +153,13 @@ V. Configure bwa aln for running
 
 To test this code, we recommend starting with publically available data:
 
-	Get the reference genome from ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
+Get the reference genome from ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
 	
-	Download and unpack the following read pair:
+Download and unpack the following read pair:
+
+ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
 	
-		ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
-	
-		ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
+ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
 
 Now prepare for testing by modifying the included scripts to match your test environment:
 	
@@ -167,7 +167,7 @@ Now prepare for testing by modifying the included scripts to match your test env
 	
 Modify configuration:
 
-	host1=crt03					# name of host1
+	host1=crt03					# hostname of host1
 	host1_exe=bwa				# executable file name on host1
 	host1_num_tasks=2			# number of tasks on host1
 	host1_num_threads=16		# number of threads for each task
@@ -212,7 +212,7 @@ Note that:
 
 (4) Set the ALN output file names using the res_file1 and res_file2 variables.
 
-VI. Build the bwa reference index file for bwa aln:
+VI. Build the bwa reference index file for bwa aln
 ============================
 
 	> ./build-index
@@ -254,21 +254,21 @@ IX. Run bwa aln on both the Intel® Xeon® processor and Intel® Xeon Phi™ cop
 
 2. Split the input data file for processing by multiple tasks depending on how many Intel® Xeon Phi™ coprocessors you will use.   
 
-For an Intel® Xeon® processor and 1 Intel® Xeon Phi™ coprocessor, do this:
+	For an Intel® Xeon® processor and 1 Intel® Xeon Phi™ coprocessor, do this:
 
 	> ./aln-cpu-and-1mic-split
 	
-For an Intel® Xeon® processor and 2 Intel® Xeon Phi™ coprocessors, do this:
+	For an Intel® Xeon® processor and 2 Intel® Xeon Phi™ coprocessors, do this:
 
 	> ./aln-cpu-and-2mic-split
 
 3.	Run on the desired number of Intel® Xeon Phi™ coprocessors as well as the Intel® Xeon® host.   
 
-To run bwa aln on both the Intel® Xeon® processor and 1 Intel® Xeon Phi™ coprocessor at once, do this:
+	To run bwa aln on both the Intel® Xeon® processor and 1 Intel® Xeon Phi™ coprocessor at once, do this:
 
 	> ./aln-cpu-and-1mic-run
 	
-To run bwa aln on both the Intel® Xeon® processor and 2 Intel® Xeon Phi™ coprocessors at once, do this:
+	To run bwa aln on both the Intel® Xeon® processor and 2 Intel® Xeon Phi™ coprocessors at once, do this:
 	
 	> ./aln-cpu-and-2mic-run
 
