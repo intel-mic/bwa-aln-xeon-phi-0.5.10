@@ -319,7 +319,7 @@ Contact your local Intel sales office or your distributor to obtain the latest s
 
 Copies of documents which have an order number and are referenced in this document, or other Intel literature, may be obtained by calling 1-800-548-4725, or go to: http://www.intel.com/design/literature.htm
 
-* Other names and brands may be claimed as the property of others.
+Other names and brands may be claimed as the property of others.
 Copyright © 2014 Intel Corporation. All rights reserved
 
 
