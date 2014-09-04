@@ -153,10 +153,13 @@ V. Configure bwa aln for running
 
 To test this code, we recommend starting with publically available data:
 
-•	Get the reference genome from ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
-•	Download and unpack the following read pair:
-	o	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
-	o	ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
+	Get the reference genome from ftp://ftp.ncbi.nih.gov/1000genomes/ftp/technical/reference/phase2_reference_assembly_sequence/
+	
+	Download and unpack the following read pair:
+	
+		ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_1.filt.fastq.gz
+	
+		ftp://ftp.ncbi.nih.gov/1000genomes/ftp/data/NA12044/sequence_read/SRR766060_2.filt.fastq.gz
 
 Now prepare for testing by modifying the included scripts to match your test environment:
 	
@@ -201,25 +204,27 @@ Modify configuration:
 	
 Note that: 
 
-(1) Intel Xeon Phi is considered as a independent host
+(1) The Intel® Xeon Phi™ coprocessor is considered a host where MPI is concerned by this implementation.
 
-(2) num_tasks * num_threads must <= number of logical cores on this host
+(2) num_tasks * num_threads must be less than or equal to the number of logical cores on each host
 
-(3) Input data file is splited ino seral files according to the ratio for each host. The ratio of host to host-mic0 (equals host1_ratio to host2_ratio) is set according to the speed of their using the speed that each host independently processes the input data files.
+(3) Using the provided scripts, the input data files are split into several intermediate files according to the ratio for each host. The ratio of host to host-mic0 (equals host1_ratio to host2_ratio) should be set using the speed that each host independently processes the input data files (which you may need to determine empirically).   For example, if the Intel® Xeon Phi™ coprocessor’s performance is 0.7~0.8x that of the same problem running on the Intel® Xeon® processor (with optimized code), then the ratio is 10 for the Intel® Xeon® processor, and 7 for the Intel® Xeon Phi™ coprocessor.
 
-(4) Set aln output file name by res_file1 and res_file2, needn’t set by -f output-file-name
+(4) Set the ALN output file names using the res_file1 and res_file2 variables.
 
-VI. Build bwa reference index file for bwa aln
+VI. Build the bwa reference index file for bwa aln:
 ============================
 
 	> ./build-index
 
-Which runs bwa index -a bwtsw $ref_file to construct the FM-index for the reference genome.
+Which runs “bwa index -a bwtsw $ref_file” to construct the FM-index for the reference genome.
 
-VII. Run bwa aln on Intel Xeon
+NOTE:  This script runs a version of BWA called “bwa-ori”.  This is the binary you get when you download BWA 0.5.10 from http://sourceforge.net/projects/bio-bwa/files/ and build it with no modifications (beyond renaming the resulting executable to “bwa-ori”).
+
+VII. Run bwa aln on the Intel® Xeon® processor
 ============================
 
-1. Split input data file for multiple tasks
+1. Split the input data file for processing by multiple tasks
 
 	> ./aln-cpu-split
 
@@ -227,58 +232,57 @@ VII. Run bwa aln on Intel Xeon
 
 	> ./aln-cpu-run
 
-Which runs bwa aln on Intel Xeon.
+Which runs bwa aln on the Intel® Xeon® processor.
 
-VIII. Run bwa aln on Intel Xeon Phi
+VIII. Run bwa aln on Intel® Xeon Phi™ coprocessor
 ============================
 
-1. Split input data file for multiple tasks
+1.	Split the input data file for processing by multiple tasks
 
 	> ./aln-1mic-split
 
-2. Run 
+2.	Run 
 
 	> ./aln-1mic-run
 
-Which runs bwa aln native on Intel Xeon.
+Which runs bwa aln natively on the Intel® Xeon Phi™ coprocessor.
 
-IX. Run bwa aln on Intel Xeon and Intel Xeon Phi in symmetric model
+IX. Run bwa aln on both the Intel® Xeon® processor and Intel® Xeon Phi™ coprocessor in symmetric mode
 ============================
 
-1. Modify host1_ratio and host2_ratio in aln_head according to the performance on Intel Xeon and Intel Xeon Phi
+1. Modify host1_ratio and host2_ratio in aln_head according to the performance seen during the standalone Intel® Xeon® processor and Intel® Xeon Phi™ coprocessor runs above
 
-2. Split input data file for multiple tasks
+2. Split the input data file for processing by multiple tasks depending on how many Intel® Xeon Phi™ coprocessors you will use.   
 
-	> ./aln-cpu-and-1mic-split
-	
-	Split input file for Intel Xeon and 1 Intel Xeon Phi card
-	
-	Or:
+For an Intel® Xeon® processor and 1 Intel® Xeon Phi™ coprocessor, do this:
 
 	> ./aln-cpu-and-1mic-split
 	
-	Split input file for Intel Xeon and 2 Intel Xeon Phi cards	
+For an Intel® Xeon® processor and 2 Intel® Xeon Phi™ coprocessors, do this:
 
-3. Run
+	> ./aln-cpu-and-2mic-split
+
+3.	Run on the desired number of Intel® Xeon Phi™ coprocessors as well as the Intel® Xeon® host.   
+
+To run bwa aln on both the Intel® Xeon® processor and 1 Intel® Xeon Phi™ coprocessor at once, do this:
 
 	> ./aln-cpu-and-1mic-run
 	
-	Which runs bwa aln on both Intel Xeon and 1 Intel Xeon Phi card in symmetric model.
-
-	Or:
-
+To run bwa aln on both the Intel® Xeon® processor and 2 Intel® Xeon Phi™ coprocessors at once, do this:
+	
 	> ./aln-cpu-and-2mic-run
 
-	Which runs bwa aln on both Intel Xeon and 2 Intel Xeon Phi cards in symmetric model.
-
-Contributors:
+X. Performance gain
 ============================
 
-You, Liang <liang.you@intel.com>
+For the public workload we described above, the following graph shows the speedup achieved from bwa-aln-xeon-phi-0.5.10. As you can see, we get:
 
-Congdon, Charles <charles.w.congdon@intel.com>
+•	Up to a 1.2x speedup can be achieved when processing both sets of reads using this code vs. the original code (bwa-0.5.10 aln, 48 threads) running on a 2-Socket Intel® Xeon® Processor E5-2697 v2. 
 
-Ramanujam, Ram <ram.ramanujam@intel.com>
+•	Up to a 1.76x speedup can be achieved when processing both sets of reads using this code on one Intel® Xeon Phi™ Coprocessor + Intel® Xeon® Processor E5-2697 v2 vs. the original code (bwa-0.5.10 aln, 48 threads) running on a 2-Socket Intel® Xeon® Processor E5-2697 v2.
+
+•	Up to 2.76x speedup can be achieved when processing both sets of reads using this code on two Intel® Xeon Phi™ coprocessors + Intel® Xeon® Processor E5-2697 v2 vs. original code(bwa-0.5.10 aln, 48 threads) running on a 2-Socket Intel® Xeon® Processor E5-2697 v2.
+
 
 
 
