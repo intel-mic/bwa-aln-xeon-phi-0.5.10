@@ -71,7 +71,7 @@ Mount the /home directory to the Intel® Xeon Phi™ coprocessor:
 	> micctrl --addnfs=/home --dir=/home
 	> service mpss start
 
-4.	Set up the Intel® MPI Library and Intel® C++ Compiler environments:	
+4. Set up the Intel® MPI Library and Intel® C++ Compiler environments:	
 	
 	> source /opt/intel/impi/<version>/bin64/mpivars.sh
 	> source /opt/intel/ composer_xe_<version>/bin/compilervars.sh intel64
