@@ -1,31 +1,29 @@
-bwa-aln-xeon-phi-0.5.10
+Building and Optimizing BWA* ALN 0.5.10 for Intel® Xeon Phi™ Coprocessors
 ============================
+
+Authors
+============================
+You, Liang (Intel), Congdon, Charles (Intel)
 
 I. Overview
 ============================
-This article provides a recipe about how to get, compile and run optimized bwa-aln-xeon-phi-0.5.10 for on Intel® Xeon® processors and Intel® Xeon Phi™ coprocessors.
+This article provides a recipe for how to obtain, compile, and run an optimized version of BWA ALN 0.5.10 on Intel® Xeon® processors and Intel® Xeon Phi™ coprocessors.
+The source for this version of BWA ALN 0.5.10 can be downloaded from: 
+https://github.com/intel-mic/bwa-aln-xeon-phi-0.5.10
 
 II. Introduction
 ============================
-BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack(ALN), BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp. 
-
-Original bwa-0.5.10 package can be downloaded from:
+“BWA is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. It consists of three algorithms: BWA-backtrack(ALN), BWA-SW and BWA-MEM. The first algorithm is designed for Illumina sequence reads up to 100bp, while the rest two for longer sequences ranged from 70bp to 1Mbp.” (http://bio-bwa.sourceforge.net/bwa.shtml)
+This project, bwa-aln-xeon-phi-0.5.10, optimizes the performance of the BWA 0.5.10 ALN module on both Intel® Xeon® processors and Intel® Xeon Phi™ coprocessors, and supports a symmetric execution model that uses both architectures in cooperation for genome mapping.
+Optimizations in this package include:
+(1) Replace pthreads with OpenMP* for better load balancing. 
+(2) Overlap file I/O and computation to improve thread utilization. 
+(3) Use the Intel® Threading Building Blocks (Intel® TBB) memory allocator for efficient cross-thread memory management.
+(4) Vectorization of performance-critical loops. 
+(5) Data prefetch intrinsics to reduce memory latency. 
+(6) Add task parallelism in addition to OpenMP to further improve load balancing.
+The original bwa-0.5.10 package can be downloaded from:
 http://sourceforge.net/projects/bio-bwa/files/
-
-This project bwa-aln-xeon-phi-0.5.10 optimizes bwa-0.5.10 ALN module performance on both Xeon and Xeon Phi platform, and supports symmetric running model on hybrid Xeon and Xeon Phi nodes.
-Optimization methods include:
-
-(1) Replace Pthreads with OpenMP for better load balance. 
-
-(2) Overlap File IO and computation to improve thread utilization. 
-
-(3) Use Intel TBB memory allocator for efficient memory management.
-
-(4) Vectorization of performance critical loop. 
-
-(5) Data prefetch Intrinsics to reduce memory latency. 
-
-(6) Add task parallelism besides OpenMP to further improve load balance.
 
 III. Preliminaries
 ============================
